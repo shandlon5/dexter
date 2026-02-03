@@ -1,0 +1,18 @@
+body {
+    background-color: #E8E8E8; /* Soft gray background */
+    color: #4F7043; /* Green text color */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh; /* Ensures full viewport height */
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px 0 0 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: transparent; /* Make the container transparent */
+}
+
