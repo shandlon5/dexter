@@ -1,52 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>D&D Campaign Reference</title>
+    <title>DM Screen</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; color: #333; }
-        h1, h2, h3 { color: #222; }
-        section { margin-bottom: 40px; }
-        .npc-block { background: #e6e6e6; padding: 10px; margin-top: 10px; border-left: 5px solid #555; }
-        .note { font-style: italic; color: #555; }
+        body {
+            background-color: #F5F5F5;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #E8E8E8;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4F7043;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #CCC;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            background-color: #4F7043;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #3e6e36;
+        }
+
+        .character-profile {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .character-profile img {
+            width: 150px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
+
 <body>
+    <div class="container">
+        <h1>DM Screen</h1>
 
-    <h1>Campaign Overview: Dexter’s Dimensional Dilemma</h1>
-    
-    <section>
-        <h2>Core Theme & Finale</h2>
-        <p>The aliens seek to exploit humanity’s fluid individuality to bridge into other dimensions. The more fractured and fluid, the easier it is for them to slip through. The finale centers on the 1983 false alarm: a moment of trust across divides, where the players must prevent the alien from exploiting that fracture in time.</p>
-    </section>
+        <form action="/add_character" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <input type="text" id="role" name="role" required>
+            </div>
+            <div class="form-group">
+                <label for="bio">Short Bio:</label>
+                <textarea id="bio" name="bio" rows="3" maxlength="100" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="image">Image:</label>
+                <input type="file" id="image" name="image" accept="image/jpeg, image/png">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Add Character</button>
+            </div>
+        </form>
 
-    <section>
-        <h2>Key Arcs & Dimensions</h2>
-        <ul>
-            <li><strong>Alien Arc:</strong> Investigate the death of Darnell Mantell; stop the alien from using emotional fluidity to open dimensional pathways.</li>
-            <li><strong>Demon Arc:</strong> Discover vertical dimensions (heaven/hell metaphor); prevent alliances with Cold War agents from destabilizing reality.</li>
-            <li><strong>Cryptid Arc:</strong> Native American legends reveal that the Thunderbird guards dimensional balance. Players must align with protective forces.</li>
-            <li><strong>Cold War Arc:</strong> Players encounter U.S. agents and Russian operatives. The Russians, allied with demons, seek to exploit the disunity. The players must foster trust at the critical historical moment.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>NPC Notes</h2>
-        <div class="npc-block">
-            <h3>Darnell Mantell</h3>
-            <p>A beloved science teacher; his death kicks off the investigation. Secretly researching his father’s alien connection. Leaves clues leading to the alien’s goal.</p>
+        <div class="character-profile">
+            <h2>Character Preview</h2>
+            <img src="image.jpeg" alt="Character Image Placeholder">
+            <p><strong>Name:</strong> <span id="preview-name">[Name]</span></p>
+            <p><strong>Role:</strong> <span id="preview-role">[Role]</span></p>
+            <p><strong>Bio:</strong> <span id="preview-bio">[Bio]</span></p>
         </div>
-        <div class="npc-block">
-            <h3>Russian Agent (Name)</h3>
-            <p>A Cold War operative who forms a pact with demonic forces, seeking power. Ultimately part of the final trust dilemma.</p>
-        </div>
-        <p class="note">(Add more NPC blocks as you develop them.)</p>
-    </section>
-
-    <section>
-        <h2>Notes & Player Handouts</h2>
-        <p class="note">Use this space to jot down clues, in-game letters, or key info to share with players when they reach critical moments.</p>
-    </section>
-
+    </div>
 </body>
 </html>
+

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>City NPC Phonebook</title>
+    <title>{{ character.name }}</title>
     <style>
         body {
             background-color: #F5F5F5;
@@ -12,13 +12,13 @@
             padding: 20px;
         }
 
-        .phonebook {
-            margin: 0 auto;
+        .character-profile {
             background-color: #E8E8E8;
             padding: 20px;
-            min-height: 100vh;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         h1 {
@@ -26,42 +26,41 @@
             color: #4F7043;
         }
 
-        .entry {
-            padding: 10px;
-            border-bottom: 1px solid #CCC;
+        .details {
+            margin-top: 20px;
         }
 
-        .entry a {
+        .details p {
+            margin: 10px 0;
+        }
+
+        .nav {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .nav a {
             color: #4F7043;
             text-decoration: none;
             font-weight: bold;
         }
 
-        .entry a:hover {
+        .nav a:hover {
             text-decoration: underline;
-        }
-
-        .nav {
-            padding: 10px;
-            margin-bottom: 15px;
         }
     </style>
 </head>
 
 <body>
-    <div class="phonebook">
+    <div class="character-profile">
+        <h1>{{ character.name }}</h1>
+        <div class="details">
+            <p><strong>Role:</strong> {{ character.role }}</p>
+            <!-- You can add more details here as needed -->
+        </div>
         <div class="nav">
-            <a href="index.html">Back to Hub</a>
+            <a href="/phonebook">Back to Phonebook</a>
         </div>
-
-        <h1>Dexter City Directory</h1>
-
-        {% for character in characters %}
-        <div class="entry">
-            <a href="people/{{ character.filename }}">{{ character.name }} - {{ character.role }}</a>
-        </div>
-        {% endfor %}
     </div>
 </body>
 </html>
-

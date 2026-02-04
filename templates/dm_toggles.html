@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DM Toggles</title>
+</head>
+<body>
+  <h1>Toggle Character Availability</h1>
+
+  <form method="POST" action="/dm/toggles">
+    {% for c in characters %}
+      <div>
+        <label>
+          <input type="checkbox" name="available" value="{{ c.id }}"
+            {% if c.available %}checked{% endif %}>
+          {{ c.name }} — {{ c.role }}
+        </label>
+      </div>
+    {% endfor %}
+
+    <br>
+    <button type="submit">Save</button>
+  </form>
+
+  <p><a href="/dm">Back to DM Tools</a></p>
+  <p><a href="/phonebook">View Phonebook</a></p>
+</body>
+</html>

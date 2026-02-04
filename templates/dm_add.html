@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Add Character</title>
+</head>
+<body>
+  <h1>Add Character</h1>
+
+  {% if error %}
+    <p style="color:red;">{{ error }}</p>
+  {% endif %}
+
+  <form method="POST" action="/dm/add">
+    <div>
+      <label>Name</label><br>
+      <input name="name" required>
+    </div>
+    <br>
+    <div>
+      <label>Role</label><br>
+      <input name="role" required>
+    </div>
+    <br>
+    <div>
+      <label>Short bio (keep it short)</label><br>
+      <textarea name="bio" rows="3" maxlength="140" required></textarea>
+    </div>
+    <br>
+    <button type="submit">Create character (unavailable by default)</button>
+  </form>
+
+  <p><a href="/dm">Back to DM Tools</a></p>
+</body>
+</html>

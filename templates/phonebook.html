@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dexter City Directory</title>
+</head>
+<body>
+  <h1>Dexter City Directory</h1>
+  <p><a href="/dm">DM Tools</a></p>
+
+  {% for c in characters %}
+    <div class="entry">
+      <a href="/people/{{ c.id }}.html">{{ c.name }} - {{ c.role }}</a>
+    </div>
+  {% endfor %}
+
+  {% if characters|length == 0 %}
+    <p>No NPCs are currently available.</p>
+  {% endif %}
+</body>
+</html>
