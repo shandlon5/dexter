@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Info Hub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}">Hub</a>
+      <a href="{{ url_for('map_page') }}">Map</a>
+      <a href="{{ url_for('phonebook') }}">Phonebook</a>
+      <a href="{{ url_for('dm_home') }}">DM Tools</a>
+    </nav>
+
+    <h1>Info</h1>
+    <p>Choose a section:</p>
+
+    <div class="entry">
+      <a href="{{ url_for('info_page', page='rumors') }}">Rumors</a>
+    </div>
+
+    <div class="entry">
+      <a href="{{ url_for('info_page', page='history') }}">History</a>
+    </div>
+
+    <div class="entry">
+      <a href="{{ url_for('info_page', page='research') }}">Research</a>
+    </div>
+  </div>
+</body>
+</html>
+
+

@@ -90,8 +90,10 @@ ensure_dirs()
 
 
 @app.route("/")
-def home_redirect():
-    return redirect(url_for("phonebook"))
+def index():
+    print("ENDPOINTS:", sorted(app.view_functions.keys()))
+    return render_template("index.html")
+
 
 
 @app.route("/dm")
@@ -168,6 +170,28 @@ def character_page(char_id):
         abort(404)
     return render_template("character.html", character=character)
 
+@app.route("/map")
+def map_page():
+    return render_template("map.html")
+
+
+@app.route("/info")
+def info_index():
+    return render_template("info/index.html")
+
+@app.route("/info/<page>")
+def info_page(page):
+    return render_template(f"info/{page}.html")
+
+
+@app.route("/places/<page>")
+def place_page(page):
+    return render_template(f"places/{page}.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+

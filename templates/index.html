@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dexter Campaign Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="{{ url_for('phonebook') }}">Phonebook</a>
+            <a href="{{ url_for('map_page') }}">Map</a>
+            <a href="{{ url_for('info_index') }}">Info</a>
+            <a href="{{ url_for('dm_home') }}">DM Tools</a>
+        </nav>
+
+        <h1>Welcome to Dexter</h1>
+        <p>Select a section above to navigate through your resources.</p>
+    </div>
+</body>
+</html>

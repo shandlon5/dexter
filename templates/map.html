@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dexter Map Project</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <div class="nav">
+      <a href="{{ url_for('index') }}">Back to Hub</a>
+    </div>
+
+    <img
+      src="{{ url_for('static', filename='maps/dexter_map.JPG') }}"
+      usemap="#dextermap"
+      alt="Map of Dexter"
+    >
+
+    <map name="dextermap">
+      <area shape="rect" coords="250,500,400,530"
+            href="{{ url_for('place_page', page='sportscomplex') }}"
+            alt="Sports Complex">
+
+      <area shape="rect" coords="790,330,880,360"
+            href="{{ url_for('place_page', page='lakesidecafe') }}"
+            alt="Lakeside Cafe">
+
+      <area shape="rect" coords="426,420,525,387"
+            href="{{ url_for('place_page', page='carrolscomics') }}"
+            alt="Carol's Comics">
+
+      <area shape="rect" coords="160,475,236,437"
+            href="{{ url_for('place_page', page='townhall') }}"
+            alt="Dexter Townhall">
+
+      <area shape="rect" coords="620,257,707,234"
+            href="{{ url_for('place_page', page='vicsgarage') }}"
+            alt="Vic's Garage">
+
+      <area shape="rect" coords="168,240,251,220"
+            href="{{ url_for('place_page', page='irmasmarket') }}"
+            alt="Irma's Market">
+
+      <area shape="rect" coords="318,192,414,173"
+            href="{{ url_for('place_page', page='dexterhigh') }}"
+            alt="Dexter High School">
+
+      <area shape="rect" coords="312,314,417,286"
+            href="{{ url_for('place_page', page='dexterhardware') }}"
+            alt="Dexter Hardware">
+
+      <area shape="rect" coords="343,250,460,227"
+            href="{{ url_for('place_page', page='allsups') }}"
+            alt="Allsups">
+
+      <area shape="rect" coords="489,151,610,120"
+            href="{{ url_for('place_page', page='pecosapartments') }}"
+            alt="Pecos">
+    </map>
+  </div>
+</body>
+</html>
+
+
