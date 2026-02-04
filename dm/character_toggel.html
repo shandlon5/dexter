@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DM Screen</title>
+</head>
+<body>
+    <h1>DM Screen: Character Management</h1>
+    <div id="character-list">
+        <!-- Character toggles will go here -->
+    </div>
+
+    <script>
+        // Example JavaScript to handle toggles
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sample character data
+            const characters = [
+                { name: "Luiz Adams", available: true },
+                { name: "Zara and Emil Allsup", available: true },
+                { name: "Hal Bogle", available: true },
+                { name: "Marcus Hensley", available: false },
+                { name: "Carrol Higgins", available: true },
+                { name: "Molly Hopper", available: true },
+                { name: "Dorris Macintosh", available: true },
+                { name: "Darnell Mantell", available: true },
+                { name: "Vic Pollard", available: true }
+            ];
+
+            const characterList = document.getElementById('character-list');
+
+            characters.forEach(char => {
+                const charDiv = document.createElement('div');
+                charDiv.innerHTML = `
+                    <span>${char.name}</span>
+                    <label>
+                        Available: 
+                        <input type="checkbox" ${char.available ? 'checked' : ''} onchange="toggleAvailability('${char.name}')">
+                    </label>
+                `;
+                characterList.appendChild(charDiv);
+            });
+        });
+
+        function toggleAvailability(name) {
+            // Here, you can handle the logic to update the availability in the backend or locally
+            console.log(`Toggled availability for: ${name}`);
+        }
+    </script>
+</body>
+</html>
