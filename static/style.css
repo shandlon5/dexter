@@ -1,0 +1,15 @@
+.profile-img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.role {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.bio {
+  margin-top: 15px;
+}
