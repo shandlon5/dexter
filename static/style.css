@@ -1,97 +1,244 @@
-.profile-img {
-  width: 150px;
-  height: auto;
-  border-radius: 8px;
-  margin: 15px 0;
+/* ======================
+   Retro Site Base
+   ====================== */
+
+:root {
+  --bg: #e6e6e6;
+  --panel: #f2f2f2;
+  --panel2: #e8e8e8;
+  --text: #222;
+  --muted: #555;
+
+  --neon-pink: #ff3bd4;
+  --neon-cyan: #32d7ff;
+  --accent: #4F7043;
 }
 
-.role {
-  font-style: italic;
-  opacity: 0.85;
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
 }
 
-.bio {
-  margin-top: 15px;
+/* subtle retro grid */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(to right, #000 1px, transparent 1px),
+    linear-gradient(to bottom, #000 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
-body { background-color: #f5f5f5; }
-
-.phonebook {
-    background-color: #E8E8E8;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.phonebook h1 {
-    text-align: center;
-    color: #4F7043;
-}
-
-.phonebook .entry {
-    padding: 10px;
-    border-bottom: 1px solid #CCC;
-}
-
-.phonebook .entry a {
-    display: block;
-    color: #4F7043;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.phonebook .entry a:hover {
-    text-decoration: underline;
-}
-
-.phonebook .nav {
-    padding: 10px;
-    margin-bottom: 15px;
+h1 {
+  margin: 0 0 10px 0;
+  color: var(--accent);
+  letter-spacing: 0.5px;
 }
 
 /* ======================
-   Character Page Styles
+   Layout Container
    ====================== */
 
 .container {
-    max-width: 720px;
-    margin: 40px auto;
-    padding: 24px;
-    background-color: #E8E8E8;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  max-width: 820px;
+  margin: 30px auto;
+  padding: 22px;
+  background-color: var(--panel2);
+  border-radius: 12px;
+  border: 1px solid #cfcfcf;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  position: relative;
 }
 
-.container h1 {
-    margin-top: 0;
-    color: #4F7043;
+/* neon corner glow */
+.container::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 14px;
+  pointer-events: none;
+  opacity: 0.35;
+  background: linear-gradient(
+    90deg,
+    var(--neon-cyan),
+    transparent 35%,
+    transparent 65%,
+    var(--neon-pink)
+  );
+  filter: blur(14px);
+  z-index: -1;
 }
+
+/* ======================
+   Nav + Buttons
+   ====================== */
+
+.nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #111;
+  background: var(--panel);
+  border: 1px solid #bdbdbd;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.14);
+}
+
+.button:active {
+  transform: translateY(0px);
+}
+
+.button.dm-small {
+  padding: 7px 12px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* ======================
+   Phonebook
+   ====================== */
+
+.phonebook {
+  max-width: 820px;
+  margin: 30px auto;
+  padding: 22px;
+  background-color: var(--panel2);
+  border-radius: 12px;
+  border: 1px solid #cfcfcf;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  position: relative;
+}
+
+/* same glow effect as container, but on phonebook */
+.phonebook::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 14px;
+  pointer-events: none;
+  opacity: 0.28;
+  background: linear-gradient(
+    90deg,
+    var(--neon-cyan),
+    transparent 35%,
+    transparent 65%,
+    var(--neon-pink)
+  );
+  filter: blur(14px);
+  z-index: -1;
+}
+
+.phonebook h1 {
+  text-align: center;
+  color: var(--accent);
+}
+
+.phonebook .entry {
+  padding: 10px;
+  border-bottom: 1px solid #CCC;
+}
+
+.phonebook .entry:last-child {
+  border-bottom: none;
+}
+
+.phonebook .entry a,
+.phonebook .entry-link {
+  display: block;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 4px 6px;
+  border-radius: 8px;
+}
+
+.phonebook .entry a:hover,
+.phonebook .entry-link:hover {
+  background: rgba(255, 255, 255, 0.35);
+  text-decoration: underline;
+}
+
+/* ======================
+   Character Pages
+   ====================== */
 
 .role {
-    font-style: italic;
-    color: #555;
-    margin-bottom: 16px;
+  margin: 0 0 14px 0;
+  color: var(--muted);
+  font-style: italic;
 }
 
 .profile-img {
-    width: 150px;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin: 16px 0;
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #cfcfcf;
+  display: block;
+  margin: 12px 0 16px 0;
 }
 
 .bio {
-    line-height: 1.6;
-    color: #333;
+  line-height: 1.6;
+  color: #2a2a2a;
+  margin-top: 15px;
 }
+
+/* ======================
+   Place Pages
+   ====================== */
+
+.place-title {
+  margin-top: 0;
+}
+
+.place-subtitle {
+  margin-top: -6px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.place-img {
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  display: block;
+  margin: 16px 0;
+  border-radius: 12px;
+  border: 1px solid #cfcfcf;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* ======================
+   Map Page
+   ====================== */
 
 .map-frame {
   width: 100%;
   background: #dcdcdc;
   border: 1px solid #bdbdbd;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
 }
 
 .map-img {
