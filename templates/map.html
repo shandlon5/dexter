@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,59 +8,104 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container map-page">
     <div class="nav">
       <a href="{{ url_for('index') }}" class="button">Back to Hub</a>
     </div>
 
-    <img
-      src="{{ url_for('static', filename='maps/dexter_map.JPG') }}"
-      usemap="#dextermap"
-      alt="Map of Dexter"
-    >
+    <h1>Dexter Map</h1>
 
-    <map name="dextermap">
-      <area shape="rect" coords="250,500,400,530"
-            href="{{ url_for('place_page', page='sportscomplex') }}"
-            alt="Sports Complex">
+    <div class="map-frame">
+      <img
+        id="dexter-map-img"
+        src="{{ url_for('static', filename='maps/dexter_map.jpg') }}"
+        usemap="#dextermap"
+        alt="Map of Dexter"
+        class="map-img"
+      >
 
-      <area shape="rect" coords="790,330,880,360"
-            href="{{ url_for('place_page', page='lakesidecafe') }}"
-            alt="Lakeside Cafe">
+      <map name="dextermap" id="dextermap">
+        <area shape="rect" coords="250,500,400,530"
+              href="{{ url_for('place_page', page='sportscomplex') }}"
+              alt="Sports Complex">
 
-      <area shape="rect" coords="426,420,525,387"
-            href="{{ url_for('place_page', page='carrolscomics') }}"
-            alt="Carol's Comics">
+        <area shape="rect" coords="790,330,880,360"
+              href="{{ url_for('place_page', page='lakesidecafe') }}"
+              alt="Lakeside Cafe">
 
-      <area shape="rect" coords="160,475,236,437"
-            href="{{ url_for('place_page', page='townhall') }}"
-            alt="Dexter Townhall">
+        <area shape="rect" coords="426,420,525,387"
+              href="{{ url_for('place_page', page='carrolscomics') }}"
+              alt="Carol's Comics">
 
-      <area shape="rect" coords="620,257,707,234"
-            href="{{ url_for('place_page', page='vicsgarage') }}"
-            alt="Vic's Garage">
+        <area shape="rect" coords="160,475,236,437"
+              href="{{ url_for('place_page', page='townhall') }}"
+              alt="Dexter Townhall">
 
-      <area shape="rect" coords="168,240,251,220"
-            href="{{ url_for('place_page', page='irmasmarket') }}"
-            alt="Irma's Market">
+        <area shape="rect" coords="620,257,707,234"
+              href="{{ url_for('place_page', page='vicsgarage') }}"
+              alt="Vic's Garage">
 
-      <area shape="rect" coords="318,192,414,173"
-            href="{{ url_for('place_page', page='dexterhigh') }}"
-            alt="Dexter High School">
+        <area shape="rect" coords="168,240,251,220"
+              href="{{ url_for('place_page', page='irmasmarket') }}"
+              alt="Irma's Market">
 
-      <area shape="rect" coords="312,314,417,286"
-            href="{{ url_for('place_page', page='dexterhardware') }}"
-            alt="Dexter Hardware">
+        <area shape="rect" coords="318,192,414,173"
+              href="{{ url_for('place_page', page='dexterhigh') }}"
+              alt="Dexter High School">
 
-      <area shape="rect" coords="343,250,460,227"
-            href="{{ url_for('place_page', page='allsups') }}"
-            alt="Allsups">
+        <area shape="rect" coords="312,314,417,286"
+              href="{{ url_for('place_page', page='dexterhardware') }}"
+              alt="Dexter Hardware">
 
-      <area shape="rect" coords="489,151,610,120"
-            href="{{ url_for('place_page', page='pecosapartments') }}"
-            alt="Pecos">
-    </map>
+        <area shape="rect" coords="343,250,460,227"
+              href="{{ url_for('place_page', page='allsups') }}"
+              alt="Allsups">
+
+        <area shape="rect" coords="489,151,610,120"
+              href="{{ url_for('place_page', page='pecosapartments') }}"
+              alt="Pecos">
+      </map>
+    </div>
   </div>
+
+  <script>
+    function rescaleImageMap(img, mapEl) {
+      if (!img.complete || !img.naturalWidth || !img.naturalHeight) return;
+
+      const scaleX = img.clientWidth / img.naturalWidth;
+      const scaleY = img.clientHeight / img.naturalHeight;
+
+      const areas = mapEl.querySelectorAll("area");
+      areas.forEach(area => {
+        if (!area.dataset.origCoords) {
+          area.dataset.origCoords = area.coords;
+        }
+
+        const orig = area.dataset.origCoords.split(",").map(n => parseFloat(n.trim()));
+        const scaled = orig.map((val, idx) => {
+          return (idx % 2 === 0)
+            ? Math.round(val * scaleX)
+            : Math.round(val * scaleY);
+        });
+
+        area.coords = scaled.join(",");
+      });
+    }
+
+    function setupResponsiveMap() {
+      const img = document.getElementById("dexter-map-img");
+      const mapEl = document.getElementById("dextermap");
+
+      const run = () => rescaleImageMap(img, mapEl);
+
+      img.addEventListener("load", run);
+      window.addEventListener("resize", run);
+
+      run();
+    }
+
+    setupResponsiveMap();
+  </script>
 </body>
 </html>
 
