@@ -1,18 +1,95 @@
+/* Page shell */
 body {
-    background-color: #E8E8E8; /* Soft gray background */
-    color: #4F7043; /* Green text color */
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 20px;
-    min-height: 100vh; /* Ensures full viewport height */
+  background-color: #F5F5F5;
+  color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
 }
 
-.container {
-    max-width: 800px;
-    margin: 20px 0 0 20px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: transparent; /* Make the container transparent */
+.phonebook {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #E8E8E8;
+  padding: 20px;
+  min-height: 100vh;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Nav */
+.nav {
+  margin-bottom: 15px;
+}
+
+.nav a {
+  color: #4F7043;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  color: #4F7043;
+  margin-bottom: 20px;
+}
+
+/* Phonebook rows */
+.entry {
+  border-bottom: 1px solid #CCC;
+}
+
+.entry:last-child {
+  border-bottom: none;
+}
+
+.entry-link {
+  display: block;
+  padding: 10px 6px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.entry-link:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+}
+
+/* Row layout */
+.entry-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.entry-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid #CCC;
+  background-color: #F5F5F5;
+}
+
+.entry-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.entry-name {
+  font-weight: bold;
+  color: #4F7043;
+}
+
+.entry-role {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
 

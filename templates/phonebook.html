@@ -3,19 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Dexter City Directory</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-  <h1>Dexter City Directory</h1>
-  <p><a href="/dm">DM Tools</a></p>
-
-  {% for c in characters %}
-    <div class="entry">
-      <a href="/people/{{ c.id }}.html">{{ c.name }} - {{ c.role }}</a>
+  <div class="phonebook">
+    <div class="nav">
+      <a href="{{ url_for('index') }}">Back to Hub</a>
     </div>
-  {% endfor %}
 
-  {% if characters|length == 0 %}
-    <p>No NPCs are currently available.</p>
-  {% endif %}
+    <h1>Dexter City Directory</h1>
+
+    {% set sorted_chars = characters|sort(attribute='name') %}
+
+    {% for c in sorted_chars %}
+      <div class="entry">
+        <a class="entry-link" href="{{ url_for('character_page', char_id=c.id) }}">
+          <div class="entry-left">
+            <img
+              src="{{ url_for('static', filename=c.image) }}"
+              alt="{{ c.name }}"
+              class="entry-avatar"
+            >
+            <div class="entry-text">
+              <div class="entry-name">{{ c.name }}</div>
+              <div class="entry-role">{{ c.role }}</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+
+    {% if characters|length == 0 %}
+      <p>No NPCs are currently available.</p>
+    {% endif %}
+  </div>
 </body>
 </html>
+
