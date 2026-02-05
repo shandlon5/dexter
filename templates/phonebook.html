@@ -18,12 +18,8 @@
 
     {% for c in sorted_chars %}
       <div class="entry">
-  <a class="entry-link" href="{{ url_for('character_page', char_id=c.id) }}">
-    <div class="entry-text">{{ c.name }} – {{ c.role }}</div>
-  </a>
-</div>
-
-          </div>
+        <a class="entry-link" href="{{ url_for('character_page', char_id=c.id) }}">
+            {{ c.name }} – {{ c.role }}
         </a>
       </div>
     {% endfor %}
