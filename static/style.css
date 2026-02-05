@@ -13,3 +13,37 @@
 .bio {
   margin-top: 15px;
 }
+
+body { background-color: #f5f5f5; }
+
+.phonebook {
+    background-color: #E8E8E8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.phonebook h1 {
+    text-align: center;
+    color: #4F7043;
+}
+
+.phonebook .entry {
+    padding: 10px;
+    border-bottom: 1px solid #CCC;
+}
+
+.phonebook .entry a {
+    color: #4F7043;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.phonebook .entry a:hover {
+    text-decoration: underline;
+}
+
+.phonebook .nav {
+    padding: 10px;
+    margin-bottom: 15px;
+}
