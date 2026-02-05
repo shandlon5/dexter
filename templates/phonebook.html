@@ -9,7 +9,7 @@
 <body>
   <div class="phonebook">
     <div class="nav">
-      <a href="{{ url_for('index') }}">Back to Hub</a>
+      <a href="{{ url_for('index') }}" class="button">Back to Hub</a>
     </div>
 
     <h1>Dexter City Directory</h1>
@@ -18,17 +18,11 @@
 
     {% for c in sorted_chars %}
       <div class="entry">
-        <a class="entry-link" href="{{ url_for('character_page', char_id=c.id) }}">
-          <div class="entry-left">
-            <img
-              src="{{ url_for('static', filename=c.image) }}"
-              alt="{{ c.name }}"
-              class="entry-avatar"
-            >
-            <div class="entry-text">
-              <div class="entry-name">{{ c.name }}</div>
-              <div class="entry-role">{{ c.role }}</div>
-            </div>
+  <a class="entry-link" href="{{ url_for('character_page', char_id=c.id) }}">
+    <div class="entry-text">{{ c.name }} – {{ c.role }}</div>
+  </a>
+</div>
+
           </div>
         </a>
       </div>
