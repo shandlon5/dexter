@@ -43,7 +43,7 @@ def npc_html_template(name: str, bio: str, image_filename: str) -> str:
 <html>
 <head>
     <title>{name}</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <style>
         .profile-img {{
             width: 150px;
@@ -59,7 +59,7 @@ def npc_html_template(name: str, bio: str, image_filename: str) -> str:
 </head>
 <body>
     <div class="container">
-        <img src="{image_filename}" alt="{name}" class="profile-img">
+        <img src="/static/{image_filename}" alt="{name}" class="profile-img">
         <h1>{name}</h1>
         <div class="bio">
             <p>{bio}</p>
