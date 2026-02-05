@@ -4,7 +4,7 @@
     "name": "Carrol Higgins",
     "role": "Owner of Carrol's Comics",
     "bio": "Owner of Carrol's Comics. She really doesn't understand the hobby but opened the store after the passing of her husband. She has a cat who is a fixture of the store. She has a bit of a green thumb.",
-    "image": "/static/npc_images/carrol_higgins.jpg",
+    "image": "npc_images/carrol_higgins.jpg",
     "available": true
   },
   {
@@ -12,7 +12,7 @@
     "name": "Colonel Marcus Hensley",
     "role": "Commander of the Local Base",
     "bio": "Colonel Hensley is the commander of the local base. He is known for his tough demeanor and intense gaze.",
-    "image": "static/npc_images/hensley.jpg",
+    "image": "npc_images/marcus_hensley.jpg",
     "available": true
   },
   {
@@ -20,7 +20,7 @@
     "name": "Darnell Mantell",
     "role": "Science Teacher",
     "bio": "The late science teacher in Dexter was loved by the community, known for leading his students to state championships in science Olympiads. He is well-loved by the community for his dedication and passion.",
-    "image": "static/npc_images/darnell_mantell.jpg",
+    "image": "npc_images/darnell_mantell.jpg",
     "available": true
   },
   {
@@ -28,7 +28,7 @@
     "name": "Dorris Macintosh",
     "role": "Librarian",
     "bio": "A warm constant presence at the local library. She has a passion for local history and often teaches free English and Spanish classes.",
-    "image": "static/npc_images/dorris_macintosh.jpg",
+    "image": "npc_images/dorris_macintosh.jpg",
     "available": true
   },
   {
@@ -36,7 +36,7 @@
     "name": "Hal Bogle",
     "role": "Rich Guy",
     "bio": "Local rich guy with deep connections to the nearby military base. His family has been here for a few generations, and he is not shy about throwing around his influence.",
-    "image": "static/npc_images/hal_bogle.jpg",
+    "image": "npc_images/hal_bogle.jpg",
     "available": true
   },
   {
@@ -44,7 +44,7 @@
     "name": "Luiz Adams",
     "role": "Deputy Sheriff",
     "bio": "Often found asleep in his police cruiser, Deputy Adams is a bit aloof but a jolly fellow.",
-    "image": "static/npc_images/luiz_adams.jpg",
+    "image": "npc_images/luiz_adams.jpg",
     "available": true
   },
   {
@@ -52,7 +52,7 @@
     "name": "Molly Hopper",
     "role": "Sheriff",
     "bio": "Third-generation sheriff. She is intelligent and intense, a sharp investigator with a firm but fair view of the law.",
-    "image": "static/npc_images/molly_hopper.jpg",
+    "image": "npc_images/molly_hopper.jpg",
     "available": true
   },
   {
@@ -60,7 +60,7 @@
     "name": "Vic Pollard",
     "role": "Owner of Vic's Garage",
     "bio": "Owner of Vic's Garage. He is an Army vet, motorcycle enthusiast, and huge ZZ Top fan. Quick to help most people with his mechanical knowledge.",
-    "image": "static/npc_images/vic_pollard.jpg",
+    "image": "npc_images/vic_pollard.jpg",
     "available": true
   },
   {
@@ -68,7 +68,7 @@
     "name": "Zara and Emil Allsup",
     "role": "Gas Station Owners",
     "bio": "Zara Allsup and her husband Emil are high school sweethearts from Phoenix who moved to Dexter a few years back, taking over a rundown Texaco and turning it into a family business.",
-    "image": "static/npc_images/zara_emil_allsup.jpg",
+    "image": "npc_images/zara_emil_allsup.jpg",
     "available": true
   }
 ]
