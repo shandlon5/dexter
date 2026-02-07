@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rumor: Thunder Hawk</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
+
+    <h1 class="place-title">Thunder Hawk</h1>
+    <p class="place-subtitle">Rumor File — wingbeats like a storm front, shadows across the desert.</p>
+
+    <img class="place-img"
+         src="{{ url_for('static', filename='placeholders/thunder_hawk.jpg') }}"
+         alt="Thunder Hawk placeholder">
+
+    <p>
+      Some swear they’ve seen a bird big enough to blot out the moon.
+      Not an eagle. Not a condor. Something older, riding the wind like it owns it.
+    </p>
+
+    <p>
+      Sightings line up with sudden weather shifts — a clear sky turning ugly in minutes,
+      a single crack of thunder with no storm on the radar, and a deep shadow crossing the ground
+      like a low-flying plane with no sound of an engine.
+    </p>
+
+    <p><a class="button" href="{{ url_for('info_index') }}">Back to Info</a></p>
+  </div>
+</body>
+</html>

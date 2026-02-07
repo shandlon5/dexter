@@ -2,34 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Info Hub</title>
+  <title>Dexter Information Archive</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <div class="container">
     <nav class="nav">
-      <a href="{{ url_for('index') }}">Hub</a>
-      <a href="{{ url_for('map_page') }}">Map</a>
-      <a href="{{ url_for('phonebook') }}">Phonebook</a>
-      <a href="{{ url_for('dm_home') }}">DM Tools</a>
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
     </nav>
 
-    <h1>Info</h1>
-    <p>Choose a section:</p>
+    <h1 class="place-title">Information Archive</h1>
+    <p class="place-subtitle">
+      It’s not if you believe — it’s what you’re going to do about it.
+    </p>
 
-    <div class="entry">
-      <a href="{{ url_for('info_page', page='rumors') }}">Rumors</a>
+    <!-- HISTORY -->
+    <div class="info-section">
+      <h2>History</h2>
+      <div class="info-entry">
+        <a href="{{ url_for('info_history_roswell') }}">The Roswell Incident</a>
+      </div>
+      <div class="info-entry">
+        <a href="{{ url_for('info_history_mantell') }}">The Mantell Crash</a>
+      </div>
+      <div class="info-entry">
+        <a href="{{ url_for('info_history_dexter') }}">Founding of Dexter</a>
+      </div>
     </div>
 
-    <div class="entry">
-      <a href="{{ url_for('info_page', page='history') }}">History</a>
-    </div>
+    <!-- RUMORS -->
+    <!-- RUMORS -->
+<div class="info-section">
+  <h2>Rumors</h2>
 
-    <div class="entry">
-      <a href="{{ url_for('info_page', page='research') }}">Research</a>
+  <div class="info-entry">
+    <a href="{{ url_for('info_rumor_chupacabra') }}">Chupacabra</a>
+  </div>
+
+  <div class="info-entry">
+    <a href="{{ url_for('info_rumor_shadow_people') }}">Shadow People</a>
+  </div>
+
+  <div class="info-entry">
+    <a href="{{ url_for('info_rumor_skinwalker') }}">Skinwalker</a>
+  </div>
+
+  <div class="info-entry">
+    <a href="{{ url_for('info_rumor_thunder_hawk') }}">Thunder Hawk</a>
+  </div>
+</div>
+
+
+    <!-- RESEARCH -->
+    <div class="info-section">
+      <h2>Research</h2>
+      <div class="info-entry">
+        <a href="{{ url_for('info_research_logs') }}">Recovered Research Logs</a>
+      </div>
+      <div class="info-entry">
+        <a href="{{ url_for('info_research_photos') }}">Photographic Evidence</a>
+      </div>
+      <div class="info-entry">
+        <a href="{{ url_for('info_research_files') }}">Redacted Government Files</a>
+      </div>
     </div>
   </div>
 </body>
 </html>
-
 

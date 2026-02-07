@@ -17,7 +17,7 @@
   --neon-pink: #ff3bd4;
   --neon-cyan: #32d7ff;
 
-  --accent: #4F7043;
+  --accent: #1c1c1c;
 
   /* NEW: button colors */
   --btn-yellow: #FFE45C;
@@ -248,6 +248,47 @@ h1 {
   background: rgba(255, 255, 255, 0.35);
   text-decoration: underline;
 }
+
+/* ======================
+   Info Index (Phonebook-style)
+   ====================== */
+
+.info-section{
+  margin-top: 22px;
+}
+
+.info-section h2{
+  margin: 0 0 10px;
+  font-family: 'Permanent Marker', cursive;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #cfcfcf;
+  padding-bottom: 4px;
+}
+
+.info-entry{
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.info-entry:last-child{
+  border-bottom: none;
+}
+
+.info-entry a{
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 4px 6px;
+  border-radius: 8px;
+}
+
+.info-entry a:hover{
+  background: rgba(255,255,255,0.35);
+  text-decoration: underline;
+}
+
+
 
 /* ======================
    Character Pages

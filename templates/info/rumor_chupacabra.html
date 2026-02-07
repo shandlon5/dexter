@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rumor: Chupacabra</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
+
+    <h1 class="place-title">Chupacabra</h1>
+    <p class="place-subtitle">Rumor File — livestock deaths, puncture marks, and nobody wanting to talk.</p>
+
+    <img class="place-img"
+         src="{{ url_for('static', filename='placeholders/chupacabra.jpg') }}"
+         alt="Chupacabra placeholder">
+
+    <p>
+      Ranchers around Dexter don’t call the sheriff anymore. They call each other.
+      Goats found drained, fences cut clean, dogs too nervous to go near the pens.
+    </p>
+
+    <p>
+      The story changes depending on who tells it — hairless dog, lizard thing, kangaroo hops —
+      but the pattern stays the same: something hungry, something fast, and something that doesn’t
+      leave tracks where it should.
+    </p>
+
+    <p><a class="button" href="{{ url_for('info_index') }}">Back to Info</a></p>
+  </div>
+</body>
+</html>

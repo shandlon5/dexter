@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rumor: Skinwalker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
+
+    <h1 class="place-title">Skinwalker</h1>
+    <p class="place-subtitle">Rumor File — voices that aren’t right, animals that watch too long.</p>
+
+    <img class="place-img"
+         src="{{ url_for('static', filename='placeholders/skinwalker.jpg') }}"
+         alt="Skinwalker placeholder">
+
+    <p>
+      Locals don’t say the name out loud. They say “that thing” or “don’t go out there.”
+      The rumor usually starts the same way: a familiar voice calling from the dark,
+      using the wrong words in the wrong order.
+    </p>
+
+    <p>
+      Dogs whine and refuse to leave the porch. Coyotes stop howling mid-note.
+      If you see something standing upright where it shouldn’t, the advice is simple:
+      don’t stare, don’t follow, and don’t answer if it speaks first.
+    </p>
+
+    <p><a class="button" href="{{ url_for('info_index') }}">Back to Info</a></p>
+  </div>
+</body>
+</html>

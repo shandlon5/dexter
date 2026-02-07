@@ -1,48 +1,37 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		    <title>Vic's Garage</title>
-		        <style>
-        body {
-		            background-color: #4F7043; /* Muted green background */
-			                color: #D2B48C; /* Complementary brown text */
-					            font-family: 'Arial', sans-serif;
-						                margin: 0;
-								            padding: 0;
-									            }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vic's Garage</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
 
-	        .header {
-			            padding: 20px;
-				                text-align: center;
-						            background-color: #D2B48C; /* Light brown header */
-							                color: #4F7043; /* Dark green text */
-									            font-size: 2em;
-										            }
+    <h1 class="place-title">Vic's Garage</h1>
+    <p class="place-subtitle">Part repair shop, part junkyard, all rust and grit.</p>
 
-		        .banner {
-				            width: 50%;
-					                height: auto;
-							            margin: 20px auto;
-								                display: block;
-										            object-fit: contain;
-											            }
+    <img
+      class="place-img"
+      src="{{ url_for('static', filename='images/vicsgarage.JPG') }}"
+      alt="Vic's Garage">
 
-			        .content {
-					            padding: 20px;
-						                font-size: 1.2em;
-								            line-height: 1.6;
-									            }
-				    </style>
-	</head>
-	<body>
-		    <div class="header">
-			            <h1>Welcome to Vic's Garage!</h1>
-				        </div>
-					    <img class="banner" src="vicsgarage.JPG" alt="Vic's Garage Banner">
-					        <div class="content">
-							        <p>Vic's Garage could better be described as a junkyard with a dash of repair. The junkyard hosts years of totaled vehicles, rusted metal, and tall weeds. The garage is a tin roofed building with a single bay with a car jack and oil stained concrete floor
-								</p>
-								    </div>
-	</body>
+    <p>
+      Vic’s Garage is basically a junkyard with a dash of repair. Out back sit years of
+      totaled vehicles, rusted metal, and tall weeds swallowing whole fenders. The “shop”
+      is a tin-roof building with a single bay, one car jack, and an oil-stained concrete
+      floor that never quite dries.
+    </p>
+
+    <p>
+      <a class="button" href="{{ url_for('map_page') }}">Back to Map</a>
+    </p>
+  </div>
+</body>
 </html>
-

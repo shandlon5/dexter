@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rumor: Shadow People</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
+
+    <h1 class="place-title">Shadow People</h1>
+    <p class="place-subtitle">Rumor File — silhouettes in doorways, corners that feel crowded.</p>
+
+    <img class="place-img"
+         src="{{ url_for('static', filename='placeholders/shadow_people.jpg') }}"
+         alt="Shadow People placeholder">
+
+    <p>
+      People around Dexter describe the same thing with different words:
+      a human shape with no face, standing where it shouldn’t fit.
+    </p>
+
+    <p>
+      The sightings spike after long nights, stress, or illness — but that doesn’t explain
+      why multiple witnesses report the same figure in the same places, weeks apart.
+      And it doesn’t explain the footprints that stop in the middle of a hallway.
+    </p>
+
+    <p><a class="button" href="{{ url_for('info_index') }}">Back to Info</a></p>
+  </div>
+</body>
+</html>
