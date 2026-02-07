@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photographic Evidence</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
+
+    <h1 class="place-title">Photographic Evidence</h1>
+    <p class="place-subtitle">Research File</p>
+
+    <img class="place-img"
+         src="{{ url_for('static', filename='placeholders/photos.jpg') }}"
+         alt="Photo evidence placeholder">
+
+    <p>
+      Still images, negatives, and enhanced reproductions collected from witnesses,
+      archives, and anonymous sources.
+    </p>
+  </div>
+</body>
+</html>

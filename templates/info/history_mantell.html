@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Mantell Crash</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
+
+    <h1 class="place-title">The Mantell Crash</h1>
+    <p class="place-subtitle">History File</p>
+
+    <img class="place-img"
+         src="{{ url_for('static', filename='placeholders/mantell.jpg') }}"
+         alt="Mantell placeholder">
+
+    <p>
+      Records relating to the death of Captain Thomas Mantell Jr. and later investigations
+      that attempted to explain the object he pursued.
+    </p>
+  </div>
+</body>
+</html>

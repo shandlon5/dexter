@@ -23,13 +23,13 @@
     <div class="info-section">
       <h2>History</h2>
       <div class="info-entry">
-        <a href="{{ url_for('info_history_roswell') }}">The Roswell Incident</a>
+        <a href="{{ url_for('info_page', page='history_roswell') }}">The Roswell Incident</a>
       </div>
       <div class="info-entry">
-        <a href="{{ url_for('info_history_mantell') }}">The Mantell Crash</a>
+        <a href="{{ url_for('info_page', page='history_mantell') }}">The Mantell Crash</a>
       </div>
       <div class="info-entry">
-        <a href="{{ url_for('info_history_dexter') }}">Founding of Dexter</a>
+        <a href="{{ url_for('info_page', page='history_dexter') }}">Founding of Dexter</a>
       </div>
     </div>
 
@@ -39,19 +39,19 @@
   <h2>Rumors</h2>
 
   <div class="info-entry">
-    <a href="{{ url_for('info_rumor_chupacabra') }}">Chupacabra</a>
+    <a href="{{ url_for('info_page', page='rumor_chupacabra') }}">Chupacabra</a>
   </div>
 
   <div class="info-entry">
-    <a href="{{ url_for('info_rumor_shadow_people') }}">Shadow People</a>
+    <a href="{{ url_for('info_page', page='rumor_shadow_people') }}">Shadow People</a>
   </div>
 
   <div class="info-entry">
-    <a href="{{ url_for('info_rumor_skinwalker') }}">Skinwalker</a>
+    <a href="{{ url_for('info_page', page='rumor_skinwalker') }}">Skinwalker</a>
   </div>
 
   <div class="info-entry">
-    <a href="{{ url_for('info_rumor_thunder_hawk') }}">Thunder Hawk</a>
+    <a href="{{ url_for('info_page', page='rumor_thunder_hawk') }}">Thunder Hawk</a>
   </div>
 </div>
 
@@ -60,13 +60,13 @@
     <div class="info-section">
       <h2>Research</h2>
       <div class="info-entry">
-        <a href="{{ url_for('info_research_logs') }}">Recovered Research Logs</a>
+        <a href="{{ url_for('info_page', page=research_logs') }}">Recovered Research Logs</a>
       </div>
       <div class="info-entry">
-        <a href="{{ url_for('info_research_photos') }}">Photographic Evidence</a>
+        <a href="{{ url_for('info_page', page='research_photos') }}">Photographic Evidence</a>
       </div>
       <div class="info-entry">
-        <a href="{{ url_for('info_research_files') }}">Redacted Government Files</a>
+        <a href="{{ url_for('info_page', page='research_files') }}">Redacted Government Files</a>
       </div>
     </div>
   </div>

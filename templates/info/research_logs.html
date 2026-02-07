@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recovered Research Logs</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
+
+    <h1 class="place-title">Recovered Research Logs</h1>
+    <p class="place-subtitle">Research File</p>
+
+    <img class="place-img"
+         src="{{ url_for('static', filename='placeholders/research_logs.jpg') }}"
+         alt="Research logs placeholder">
+
+    <p>
+      Journals, field notes, and recovered documents attributed to independent researchers
+      and former academics.
+    </p>
+  </div>
+</body>
+</html>

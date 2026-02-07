@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Founding of Dexter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
+
+    <h1 class="place-title">Founding of Dexter</h1>
+    <p class="place-subtitle">History File</p>
+
+    <img class="place-img"
+         src="{{ url_for('static', filename='placeholders/dexter_founding.jpg') }}"
+         alt="Dexter founding placeholder">
+
+    <p>
+      Early settlement records, rail expansion, agriculture, and the town’s gradual
+      transformation into what it is today.
+    </p>
+  </div>
+</body>
+</html>
