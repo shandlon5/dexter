@@ -1,47 +1,37 @@
+
 <!DOCTYPE html>
-<html>
-	<head>
-		    <title>Allsup's Convenience Store</title>
-		        <style>
-        body {
-		            background-color: #f8faed; /* Muted green background */
-			                color: #cf1534; /* Complementary brown text */
-					            font-family: 'Arial', sans-serif;
-						                margin: 0;
-								            padding: 0;
-									            }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Allsup's Convenience Store</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
 
-	        .header {
-			            padding: 20px;
-				                text-align: center;
-						            background-color: #076827; /* Light brown header */
-							                color: #f10a1d; /* Dark green text */
-									            font-size: 2em;
-										            }
+    <h1 class="place-title">Allsup's Convenience Store</h1>
+    <p class="place-subtitle">Gas, cold drinks, and the best hot snacks in town.</p>
 
-		        .banner {
-				            width: 50%;
-					                height: auto;
-							            margin: 20px auto;
-								                display: block;
-										            object-fit: contain;
-											            }
+    <img
+      class="place-img"
+      src="{{ url_for('static', filename='images/allsups_store.jpg') }}"
+      alt="Allsup's Convenience Store">
 
-			        .content {
-					            padding: 20px;
-						                font-size: 1.2em;
-								            line-height: 1.6;
-									            }
-				    </style>
-	</head>
-	<body>
-		    <div class="header">
-			            <h1>Allsup's Convenience Store!</h1>
-				        </div>
-					    <img class="banner" src="allsups_store.jpg" alt="Allsup's Convenience Store Banner">
-					        <div class="content">
-							        <p>A local family run store with gas, cold beer, and hot snacks. The biggest seller is the tamales with butter chicken a representation of their mixed family.  
-								</p>
-								    </div>
-	</body>
+    <p>
+      A local family-run stop with gas, cold drinks, and hot snacks.
+      The biggest seller is the tamales with butter chicken — a nod to their mixed family
+      and a combo nobody expects until they try it.
+    </p>
+
+    <p>
+      <a class="button" href="{{ url_for('map_page') }}">Back to Map</a>
+    </p>
+  </div>
+</body>
 </html>

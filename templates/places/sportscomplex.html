@@ -1,53 +1,29 @@
+
 <!DOCTYPE html>
-<html>
-	<head>
-		    <title>Hal Bogle Sports Complex</title>
-		        <style>
-        body {
-		            background-color: #4F7043; /* Muted green background */
-			                color: #D2B48C; /* Complementary brown text */
-					            font-family: 'Arial', sans-serif;
-						                margin: 0;
-								            padding: 0;
-									            }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hal Bogle Sports Complex</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
 
-	        .header {
-			            padding: 20px;
-				                text-align: center;
-						            background-color: #D2B48C; /* Light brown header */
-							                color: #4F7043; /* Dark green text */
-									            font-size: 2em;
-										            }
+    <h1 class="place-title">Hal Bogle Sports Complex</h1>
+    <p class="place-subtitle">Youth sports, church leagues, and dusty diamonds.</p>
 
-		        .banner {
-				            width: 50%;
-					                height: auto;
-							            margin: 20px auto;
-								                display: block;
-										            object-fit: contain;
-											            }
+    <img
+      class="place-img"
+      src="{{ url_for('static', filename='images/hal_bogle.jpg') }}"
+      alt="Hal Bogle Sports Complex">
 
-			        .content {
-					            padding: 20px;
-						                font-size: 1.2em;
-								            line-height: 1.6;
-									            }
-				    </style>
-	</head>
-	<body>
-		    <div class="header">
-			            <h1>Welcome to Hal Bogle Sports Complex!</h1>
-				        </div>
-					    <img class="banner" src="hal_bogle.jpg" alt="Hal Bogle Sports Complex Banner">
-					        <div class="content">
-							        <p>Join us for fun, community, and youth sports! Sign up for T-ball and more. Let’s make memories and have a blast!
-
-
-Fuded by the local 1% Mr. Bogle who won a DoD contract building all things infrastructure from electric to satellite dishes. He also is a prominent figure in the nearby Mescalero reservation. He employees about 30 men each summer if you can stand the heat!
-
-During the spring and fall the 3 mostly dirt baseball fields play host to youth sports and church softball leagues. The small concession stand sells stale popcorn, drinks, and quickly melted candy. 
-								</p>
-								    </div>
-	</body>
-</html>
+    <p>
+      A community sports complex hosting youth leagues, church softball, and seasonal
+      tournaments. The three mostly dirt basebal
 

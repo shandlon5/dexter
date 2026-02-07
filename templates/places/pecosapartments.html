@@ -1,48 +1,37 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		    <title>Pecos Apartments</title>
-		        <style>
-        body {
-		            background-color: #8cd5d8; /* Muted green background */
-			                color: #f218fa; /* Complementary brown text */
-					            font-family: 'Arial', sans-serif;
-						                margin: 0;
-								            padding: 0;
-									            }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pecos Apartments</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
 
-	        .header {
-			            padding: 20px;
-				                text-align: center;
-						            background-color: #58f3b3; /* Light brown header */
-							                color: #08b6eb; /* Dark green text */
-									            font-size: 2em;
-										            }
+    <h1 class="place-title">Pecos Apartments</h1>
+    <p class="place-subtitle">North side housing, cheap rent, no questions.</p>
 
-		        .banner {
-				            width: 50%;
-					                height: auto;
-							            margin: 20px auto;
-								                display: block;
-										            object-fit: contain;
-											            }
+    <img
+      class="place-img"
+      src="{{ url_for('static', filename='images/pecos.jpg') }}"
+      alt="Pecos Apartments">
 
-			        .content {
-					            padding: 20px;
-						                font-size: 1.2em;
-								            line-height: 1.6;
-									            }
-				    </style>
-	</head>
-	<body>
-		    <div class="header">
-			            <h1>Pecos Apartments</h1>
-				        </div>
-					    <img class="banner" src="pecos.jpg" alt="Pecos Apartments Banner">
-					        <div class="content">
-							        <p>A complex of 2 rundown apartment buildings on the north side of town. Inside the apartments are small. Typically you can find a small time weed dealer posted up on a broken down Camaro.
-								</p>
-								    </div>
-	</body>
+    <p>
+      A pair of rundown apartment buildings on the north side of town. The units are small,
+      the paint is peeling, and the stairwells smell like oil and dust. Most nights, someone
+      can be found leaning against a beat-up Camaro out front, keeping an eye on who comes
+      and goes.
+    </p>
+
+    <p>
+      <a class="button" href="{{ url_for('map_page') }}">Back to Map</a>
+    </p>
+  </div>
+</body>
 </html>
-

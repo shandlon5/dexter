@@ -1,53 +1,42 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		    <title>Carrol's Comics</title>
-		        <style>
-        body {
-		            background-color: #c0c0c0; /* Muted green background */
-			                color: #131212; /* Complementary brown text */
-					            font-family: 'Arial', sans-serif;
-						                margin: 0;
-								            padding: 0;
-									            }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrol's Comics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
 
-	        .header {
-			            padding: 20px;
-				                text-align: center;
-						            background-color: #fa0707; /* Light brown header */
-							                color: #070707; /* Dark green text */
-									            font-size: 2em;
-										            }
+    <h1 class="place-title">Carrol's Comics</h1>
+    <p class="place-subtitle">Buy local… no other options.</p>
 
-		        .banner {
-				            width: 50%;
-					                height: auto;
-							            margin: 20px auto;
-								                display: block;
-										            object-fit: contain;
-											            }
+    <img
+      class="place-img"
+      src="{{ url_for('static', filename='images/carrolscomics.jpg') }}"
+      alt="Carrol's Comics">
 
-			        .content {
-					            padding: 20px;
-						                font-size: 1.2em;
-								            line-height: 1.6;
-									            }
-				    </style>
-	</head>
-	<body>
-		    <div class="header">
-			            <h1>Carrol's Comics</h1>
-				        </div>
-					    <img class="banner" src="carrolscomics.jpg" alt="comics">
-					        <div class="content">
-							        <p style="text-align: center;">Buy local...no other options.</p>
+    <p style="text-align:center;">
+      Buy local... no other options.
+    </p>
 
+    <p>
+      Started as trying to sell off her late husband's collection, but it turned into a small business
+      on the lower level of her home. Most days she is either tending the shop, fussing over her cat,
+      or working in the garden out back.
+    </p>
 
-
-
- <p>Started as trying to sell off her late husband's collection but turned into a nice small business on the lower level of her home. Her main hobbies revolve around her cat and garden.
-								</p>
-								    </div>
-	</body>
+    <p>
+      <a class="button" href="{{ url_for('map_page') }}">Back to Map</a>
+    </p>
+  </div>
+</body>
 </html>
+
 

@@ -1,47 +1,36 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		    <title>Dexter Hardware</title>
-		        <style>
-        body {
-		            background-color: #f8faed; /* Muted green background */
-			                color: #cf1534; /* Complementary brown text */
-					            font-family: 'Arial', sans-serif;
-						                margin: 0;
-								            padding: 0;
-									            }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dexter Hardware</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
 
-	        .header {
-			            padding: 20px;
-				                text-align: center;
-						            background-color: #076827; /* Light brown header */
-							                color: #f10a1d; /* Dark green text */
-									            font-size: 2em;
-										            }
+    <h1 class="place-title">Dexter Hardware</h1>
+    <p class="place-subtitle">Tools, advice, and the town bulletin board.</p>
 
-		        .banner {
-				            width: 50%;
-					                height: auto;
-							            margin: 20px auto;
-								                display: block;
-										            object-fit: contain;
-											            }
+    <img
+      class="place-img"
+      src="{{ url_for('static', filename='images/hardware_dexter.JPG') }}"
+      alt="Dexter Hardware">
 
-			        .content {
-					            padding: 20px;
-						                font-size: 1.2em;
-								            line-height: 1.6;
-									            }
-				    </style>
-	</head>
-	<body>
-		    <div class="header">
-			            <h1>Dexter Hardware!</h1>
-				        </div>
-					    <img class="banner" src="hardware_dexter.JPG" alt="Dexter Hardware Banner">
-					        <div class="content">
-							        <p>Local hangout for the old guys in the area. Offers some handyman services as well.  
-								</p>
-								    </div>
-	</body>
+    <p>
+      A local hangout for the older crowd in town, Dexter Hardware doubles as an informal
+      meeting place as much as a supply shop. If you need a bolt, a ladder, or a bit of
+      unsolicited advice, this is where you’ll get it.
+    </p>
+
+    <p>
+      <a class="button" href="{{ url_for('map_page') }}">Back to Map</a>
+    </p>
+  </div>
+</body>
 </html>

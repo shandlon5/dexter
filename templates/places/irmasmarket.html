@@ -1,47 +1,37 @@
+
 <!DOCTYPE html>
-<html>
-	<head>
-		    <title>Irma's Market</title>
-		        <style>
-        body {
-		            background-color: #f8faed; /* Muted green background */
-			                color: #cf1534; /* Complementary brown text */
-					            font-family: 'Arial', sans-serif;
-						                margin: 0;
-								            padding: 0;
-									            }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Irma's Market</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
 
-	        .header {
-			            padding: 20px;
-				                text-align: center;
-						            background-color: #076827; /* Light brown header */
-							                color: #f10a1d; /* Dark green text */
-									            font-size: 2em;
-										            }
+    <h1 class="place-title">Irma's Market</h1>
+    <p class="place-subtitle">Groceries, fried chicken, and town gossip.</p>
 
-		        .banner {
-				            width: 50%;
-					                height: auto;
-							            margin: 20px auto;
-								                display: block;
-										            object-fit: contain;
-											            }
+    <img
+      class="place-img"
+      src="{{ url_for('static', filename='images/irmasmarket.JPG') }}"
+      alt="Irma's Market">
 
-			        .content {
-					            padding: 20px;
-						                font-size: 1.2em;
-								            line-height: 1.6;
-									            }
-				    </style>
-	</head>
-	<body>
-		    <div class="header">
-			            <h1>Irma's Market!</h1>
-				        </div>
-					    <img class="banner" src="irmasmarket.JPG" alt="Irma's Market Banner">
-					        <div class="content">
-							        <p>Famous for fried chicken Sundays. This local grocery store has everything but specializes in gossip.  
-								</p>
-								    </div>
-	</body>
+    <p>
+      Famous for fried chicken Sundays, Irma’s Market has just about everything a small
+      grocery store can carry. The real specialty, though, is gossip — if something happened
+      in Dexter, someone heard about it here first.
+    </p>
+
+    <p>
+      <a class="button" href="{{ url_for('map_page') }}">Back to Map</a>
+    </p>
+  </div>
+</body>
 </html>
