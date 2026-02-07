@@ -16,24 +16,18 @@
     <p class="place-subtitle">History File</p>
 
     <p class="place-lede">
-      In the summer of 1947, something came down outside Roswell, New Mexico—and the story changed fast.
-      First it was reported as a recovered “flying disc.” Then it became a “weather balloon.” The quick reversal,
-      the heavy military presence, and the missing details left a trail that never went cold.
-      People who’ve followed the case don’t see a simple mix-up—they see a cleanup.
+      In the summer of 1947, something came down outside Roswell, New Mexico.
+      Early reports described the recovery of a “flying disc,” a claim that was
+      quickly walked back by military officials. Within days, the incident was
+      reframed as a mundane weather balloon recovery.
+      Those who have studied the case note the speed of the reversal, the volume
+      of redactions, and the consistency of witness accounts suggesting advanced,
+      unfamiliar materials.
     </p>
 
-    <section class="evidence-board" aria-label="Roswell evidence board">
-      <!-- Red string overlay (stays on top of the grid) -->
-      <svg class="string-overlay" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-        <!-- tweak these points if you rearrange things -->
-        <line x1="25" y1="25" x2="75" y2="25" />
-        <line x1="75" y1="25" x2="25" y2="75" />
-        <line x1="25" y1="75" x2="75" y2="75" />
-        <line x1="25" y1="25" x2="75" y2="75" />
-      </svg>
-
-      <div class="evidence-grid">
-        <!-- 1: photo pulling the “UFO” up -->
+    <section class="evidence-board">
+      <div class="evidence-grid evidence-grid-3">
+        <!-- UFO recovery photo -->
         <figure class="evidence-card">
           <img
             src="{{ url_for('static', filename='placeholders/roswell_ufo_pull.jpg') }}"
@@ -41,23 +35,11 @@
             class="evidence-img"
           >
           <figcaption class="evidence-cap">
-            “Recovery” photo — debris being pulled up for transport.
+            Recovery photo showing debris being removed from the crash site.
           </figcaption>
         </figure>
 
-        <!-- 2: newspaper article -->
-        <figure class="evidence-card">
-          <img
-            src="{{ url_for('static', filename='placeholders/roswell_newspaper.jpg') }}"
-            alt="Newspaper clipping about a recovered flying disc"
-            class="evidence-img"
-          >
-          <figcaption class="evidence-cap">
-            Newspaper clipping — the story that hit print before the switch.
-          </figcaption>
-        </figure>
-
-        <!-- 3: crouched officer with silver fabric -->
+        <!-- Officer with silver material -->
         <figure class="evidence-card">
           <img
             src="{{ url_for('static', filename='placeholders/roswell_officer_silver.jpg') }}"
@@ -65,37 +47,53 @@
             class="evidence-img"
           >
           <figcaption class="evidence-cap">
-            “Silver fabric” — the detail that never sits right.
+            Reflective material reported to behave unlike cloth or metal.
           </figcaption>
         </figure>
 
-        <!-- 4: DoD redacted article -->
-        <figure class="evidence-card">
+        <!-- Large redacted DoD document -->
+        <figure class="evidence-card evidence-dod">
           <img
             src="{{ url_for('static', filename='placeholders/roswell_dod_redacted.jpg') }}"
-            alt="Redacted Department of Defense document related to Roswell"
+            alt="Redacted Department of Defense document relating to the Roswell incident"
             class="evidence-img"
           >
           <figcaption class="evidence-cap">
-            DoD document (redacted) — answers behind black ink.
+            Department of Defense file released with extensive redactions.
           </figcaption>
         </figure>
       </div>
     </section>
 
     <section class="place-notes">
-      <h2 class="place-h2">What the file suggests</h2>
-      <ul class="place-bullets">
-        <li>Initial reporting described an unusual recovery—then the official explanation pivoted almost immediately.</li>
-        <li>Witness accounts and later statements describe materials that don’t behave like ordinary aircraft wreckage.</li>
-        <li>Paper trails exist, but key sections are missing, sealed, or heavily redacted.</li>
-        <li>The pattern looks less like confusion and more like a controlled narrative.</li>
-      </ul>
+  <h2 class="place-h2">Additional Documents Recovered</h2>
+  <ul class="place-bullets">
+    <li>
+      Interview Transcript: Nurse Claims Roswell Bodies ‘Not Human’<br>
+      Summary: A recent interview at Resting Hills Retirement Home with an elderly nurse who recounts her 1947 Roswell experience, describing bodies unlike anything she had ever seen.
+    </li>
+    <li>
+      Sheriff Hopper's Public Statements: Sudden Shift to ‘Weather Balloon’<br>
+      Summary: A timeline of Sheriff George Hopper’s statements—grandfather of the current sheriff—initially citing unidentified wreckage, later aligning with the weather balloon story. Also notes his later DUI-related death, quietly kept out of the public eye.
+    </li>
+    <li>
+      Redacted Government Record: Scribbled Attempts at Decoding<br>
+      Summary: A heavily redacted document with handwritten guesses in the margins, attempting to fill in missing words.
+    </li>
+    <li>
+      Scientific Report: Arrowhead-Shaped Silver Artifact Under Analysis<br>
+      Summary: Ongoing scientific testing of a silver arrowhead-shaped fragment, origin unknown.
+    </li>
+  </ul>
+</section>
+
+
       <p class="place-foot">
-        If you’re holding this file, you’re not looking for a neat answer—you’re looking for the parts they didn’t want kept.
+        More documents exist
       </p>
     </section>
   </div>
 </body>
 </html>
+
 

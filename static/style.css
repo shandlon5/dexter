@@ -389,23 +389,6 @@ h1 {
   overflow: hidden;
 }
 
-/* Red string overlay */
-.string-overlay {
-  position: absolute;
-  inset: 12px;
-  width: calc(100% - 24px);
-  height: calc(100% - 24px);
-  pointer-events: none;
-  z-index: 3;
-  opacity: 0.9;
-}
-
-.string-overlay line {
-  stroke: #b11a1a;
-  stroke-width: 0.9;
-  stroke-linecap: round;
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.25));
-}
 
 /* Grid for 4 evidence photos */
 .evidence-grid {
@@ -476,3 +459,58 @@ h1 {
     height: 200px;
   }
 }
+
+/* ======================
+   Roswell Evidence Layout (3 items, DoD emphasized)
+   ====================== */
+
+.evidence-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "ufo dod"
+    "officer dod";
+  gap: 14px;
+}
+
+.evidence-grid-3 .evidence-card:nth-child(1) {
+  grid-area: ufo;
+}
+
+.evidence-grid-3 .evidence-card:nth-child(2) {
+  grid-area: officer;
+}
+
+.evidence-grid-3 .evidence-card:nth-child(3) {
+  grid-area: dod;
+}
+
+/* Make the DoD doc feel important */
+.evidence-dod {
+  padding: 14px;
+  background: rgba(240, 240, 240, 0.9);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+
+.evidence-dod .evidence-img {
+  height: 100%;
+  min-height: 480px;
+  object-fit: contain;
+  background: #e0e0e0;
+}
+
+/* Mobile fallback */
+@media (max-width: 700px) {
+  .evidence-grid-3 {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "ufo"
+      "officer"
+      "dod";
+  }
+
+  .evidence-dod .evidence-img {
+    min-height: 320px;
+  }
+}
+
