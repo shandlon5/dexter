@@ -15,7 +15,13 @@
         </nav>
 
         <h1>Welcome to Dexter</h1>
-        <p>Select a section above to navigate through your resources.</p>
+        <p>Select a section above to navigate through your resources. </p>
+          {% if poster %}
+          <img
+            class="poster"
+            src="{{ url_for('static', filename='posters/' + poster) }}"
+            alt="80s film poster">
+        {% endif %}
     </div>
 </body>
 </html>

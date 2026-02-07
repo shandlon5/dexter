@@ -1,3 +1,8 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Permanent+Marker&family=Outfit:wght@300;400;600;800&display=swap');
+
+
 /* ======================
    Retro Site Base
    ====================== */
@@ -11,13 +16,20 @@
 
   --neon-pink: #ff3bd4;
   --neon-cyan: #32d7ff;
+
   --accent: #4F7043;
+
+  /* NEW: button colors */
+  --btn-yellow: #FFE45C;
+  --btn-cyan: #43E7FF;
+  --btn-pink: #FF4FD8;
+  --btn-dark: #1c1c1c;
 }
 
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family: Arial, sans-serif;
+  font-family: 'Outfit', Arial, sans-serif;
   margin: 0;
   padding: 20px;
 }
@@ -81,9 +93,15 @@ h1 {
 
 .nav {
   display: flex;
+  align-items: center;
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 14px;
+}
+
+/* DM Tools goes to far right */
+.nav .dm-small {
+  margin-left: auto;
 }
 
 .button {
@@ -91,27 +109,80 @@ h1 {
   padding: 10px 16px;
   border-radius: 10px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
   color: #111;
   background: var(--panel);
-  border: 1px solid #bdbdbd;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.10);
-  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  border: 2px solid rgba(0,0,0,0.14);
+  box-shadow: 0 6px 0 rgba(0,0,0,0.10);
+  transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.12s ease;
 }
 
 .button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.14);
+  filter: brightness(1.03);
+  box-shadow: 0 8px 0 rgba(0,0,0,0.10);
 }
 
 .button:active {
-  transform: translateY(0px);
+  transform: translateY(1px);
+  box-shadow: 0 5px 0 rgba(0,0,0,0.10);
 }
 
+/* Color the landing-page buttons by position:
+   1=Phonebook (Yellow), 2=Map (Cyan), 3=Info (Pink)
+   DM Tools is separately styled below.
+*/
+.nav .button:nth-child(1) { background: var(--btn-yellow); color: #1c1c1c; }
+.nav .button:nth-child(2) { background: var(--btn-cyan);   color: #1c1c1c; }
+.nav .button:nth-child(3) { background: var(--btn-pink);   color: #1c1c1c; }
+
+/* DM Tools button */
 .button.dm-small {
   padding: 7px 12px;
   font-size: 13px;
+  opacity: 0.92;
+  background: var(--btn-dark);
+  color: var(--btn-yellow);
+  border-color: rgba(255, 228, 92, 0.55);
+}
+
+/* ======================
+   Landing Page Title (80s poster vibe)
+   ====================== */
+
+.container h1 {
+  font-family: 'Monoton', cursive;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 18px 0 10px;
+  text-align: center;
+  text-shadow:
+    0 0 4px rgba(79,112,67,0.55),
+    0 0 14px rgba(79,112,67,0.25);
+}
+
+.container p {
+  text-align: center;
   opacity: 0.85;
+  margin-top: 6px;
+}
+
+/* ======================
+   Poster on Hub (for random 80s film image)
+   Add <img class="poster" ...> to hub.html when ready
+   ====================== */
+
+.poster {
+  display: block;
+  width: min(420px, 92vw);
+  margin: 22px auto 0;
+  border-radius: 14px;
+  border: 3px solid rgba(0,0,0,0.10);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.18);
 }
 
 /* ======================
@@ -246,4 +317,3 @@ h1 {
   width: 100%;
   height: auto;
 }
-

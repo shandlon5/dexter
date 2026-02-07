@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, abort
 import json
 import os
 import re
+import random
 
 app = Flask(__name__)
 
@@ -92,7 +93,16 @@ ensure_dirs()
 @app.route("/")
 def index():
     print("ENDPOINTS:", sorted(app.view_functions.keys()))
-    return render_template("index.html")
+
+    poster_dir = os.path.join(app.static_folder, "posters")
+    posters = [
+        f for f in os.listdir(poster_dir)
+        if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp"))
+    ]
+
+    poster = random.choice(posters) if posters else None
+
+    return render_template("index.html", poster=poster)
 
 
 
