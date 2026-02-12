@@ -1,47 +1,52 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		    <title>Dexter Townhall</title>
-		        <style>
-        body {
-		            background-color: #f8faed; /* Muted green background */
-			                color: #1547cf; /* Complementary brown text */
-					            font-family: 'Arial', sans-serif;
-						                margin: 0;
-								            padding: 0;
-									            }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dexter Townhall</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
 
-	        .header {
-			            padding: 20px;
-				                text-align: center;
-						            background-color: #6547d4; /* Light brown header */
-							                color: #3aa148; /* Dark green text */
-									            font-size: 2em;
-										            }
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
 
-		        .banner {
-				            width: 50%;
-					                height: auto;
-							            margin: 20px auto;
-								                display: block;
-										            object-fit: contain;
-											            }
+    <header class="place-header">
+      <h1 class="place-title">Dexter Townhall</h1>
+      <p class="place-subtitle">Center of local government and public records.</p>
+    </header>
 
-			        .content {
-					            padding: 20px;
-						                font-size: 1.2em;
-								            line-height: 1.6;
-									            }
-				    </style>
-	</head>
-	<body>
-		    <div class="header">
-			            <h1>Dexter Townhall</h1>
-				        </div>
-					    <img class="banner" src="townhall.JPG" alt="Dexter Townhall Banner">
-					        <div class="content">
-							        <p>Dexter Townhall hosts all government business from animal control to police.  
-								</p>
-								    </div>
-	</body>
+    <section class="place-card">
+
+      <img
+        class="place-img"
+        src="{{ url_for('static', filename='images/townhall.JPG') }}"
+        alt="Dexter Townhall">
+
+      <div class="place-text">
+        <p>
+          Dexter Townhall hosts most government business in town —
+          from animal control reports to police administration and
+          council meetings.
+        </p>
+
+        <p>
+          The bulletin boards are usually crowded with announcements,
+          event postings, and the occasional heated public notice.
+        </p>
+      </div>
+
+    </section>
+
+    <div class="place-actions">
+      <a class="button" href="{{ url_for('map_page') }}">Back to Map</a>
+    </div>
+
+  </div>
+</body>
 </html>
+

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, abort
+from flask import Flask, render_template, request, redirect, url_for, abort, jsonify
 import json
 import os
 import re
@@ -9,7 +9,9 @@ app = Flask(__name__)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 PEOPLE_DIR = os.path.join(BASE_DIR, "people")
+
 CHAR_FILE = os.path.join(DATA_DIR, "characters.json")
+NOTES_FILE = os.path.join(DATA_DIR, "dm_notes.json")
 
 PLACEHOLDER_IMAGE = "placeholder.jpg"
 
@@ -17,9 +19,14 @@ PLACEHOLDER_IMAGE = "placeholder.jpg"
 def ensure_dirs():
     os.makedirs(DATA_DIR, exist_ok=True)
     os.makedirs(PEOPLE_DIR, exist_ok=True)
+
     if not os.path.exists(CHAR_FILE):
         with open(CHAR_FILE, "w", encoding="utf-8") as f:
             json.dump([], f, indent=2, ensure_ascii=False)
+
+    if not os.path.exists(NOTES_FILE):
+        with open(NOTES_FILE, "w", encoding="utf-8") as f:
+            json.dump({"note": ""}, f, indent=2, ensure_ascii=False)
 
 
 def load_characters():
@@ -30,6 +37,20 @@ def load_characters():
 def save_characters(chars):
     with open(CHAR_FILE, "w", encoding="utf-8") as f:
         json.dump(chars, f, indent=2, ensure_ascii=False)
+
+
+def load_dm_note() -> str:
+    try:
+        with open(NOTES_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("note", "")
+    except (FileNotFoundError, json.JSONDecodeError):
+        return ""
+
+
+def save_dm_note(note: str) -> None:
+    with open(NOTES_FILE, "w", encoding="utf-8") as f:
+        json.dump({"note": note}, f, indent=2, ensure_ascii=False)
 
 
 def slugify(name: str) -> str:
@@ -101,14 +122,44 @@ def index():
     ]
 
     poster = random.choice(posters) if posters else None
-
     return render_template("index.html", poster=poster)
-
 
 
 @app.route("/dm")
 def dm_home():
     return render_template("dm_home.html")
+
+
+# ===== DM NOTES API (works from phone + computer) =====
+@app.route("/api/notes", methods=["GET", "POST"])
+def api_notes():
+    if request.method == "POST":
+        data = request.get_json(silent=True) or {}
+        
+        try:
+            with open(NOTES_FILE, "r", encoding="utf-8") as f:
+                notes = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            notes = {"hooks": "", "previous_session": "", "misc": ""}
+
+        # Update only the sections provided
+        for key in ["hooks", "previous_session", "misc"]:
+            if key in data and isinstance(data[key], str):
+                notes[key] = data[key]
+
+        with open(NOTES_FILE, "w", encoding="utf-8") as f:
+            json.dump(notes, f, indent=2, ensure_ascii=False)
+
+        return jsonify({"status": "ok"})
+
+    # GET
+    try:
+        with open(NOTES_FILE, "r", encoding="utf-8") as f:
+            notes = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        notes = {"hooks": "", "previous_session": "", "misc": ""}
+
+    return jsonify(notes)
 
 
 @app.route("/dm/add", methods=["GET", "POST"])
@@ -180,6 +231,7 @@ def character_page(char_id):
         abort(404)
     return render_template("character.html", character=character)
 
+
 @app.route("/map")
 def map_page():
     return render_template("map.html")
@@ -188,6 +240,7 @@ def map_page():
 @app.route("/info")
 def info_index():
     return render_template("info/index.html")
+
 
 @app.route("/info/<page>")
 def info_page(page):
@@ -201,7 +254,6 @@ def place_page(page):
 
 if __name__ == "__main__":
     app.run(debug=True)
-
 
 
 

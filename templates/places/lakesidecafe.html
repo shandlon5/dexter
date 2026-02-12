@@ -1,47 +1,51 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		    <title>Hal Bogle Sports Complex</title>
-		        <style>
-        body {
-		            background-color: #c4e23e; /* Muted green background */
-			                color: #0b07f3; /* Complementary brown text */
-					            font-family: 'Arial', sans-serif;
-						                margin: 0;
-								            padding: 0;
-									            }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hal Bogle Sports Complex</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
 
-	        .header {
-			            padding: 20px;
-				                text-align: center;
-						            background-color: #cf6ff5; /* Light brown header */
-							                color: #aa0909; /* Dark green text */
-									            font-size: 2em;
-										            }
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
 
-		        .banner {
-				            width: 50%;
-					                height: auto;
-							            margin: 20px auto;
-								                display: block;
-										            object-fit: contain;
-											            }
+    <header class="place-header">
+      <h1 class="place-title">Hal Bogle Sports Complex</h1>
+      <p class="place-subtitle">Fields, bleachers, and lights that buzz all night.</p>
+    </header>
 
-			        .content {
-					            padding: 20px;
-						                font-size: 1.2em;
-								            line-height: 1.6;
-									            }
-				    </style>
-	</head>
-	<body>
-		    <div class="header">
-			            <h1>Welcome Lakeside Cafe!</h1>
-				        </div>
-					    <img class="banner" src="lakeside.jpg" alt="Hal Bogle Sports Complex Banner">
-					        <div class="content">
-							        <p>Shakes, Burgers, and Fries with obscured view of a lake. Open late for bad coffee and pie. 
-								</p>
-								    </div>
-	</body>
+    <section class="place-card">
+
+      <img
+        class="place-img"
+        src="{{ url_for('static', filename='images/hal_bogle_sports_complex.jpg') }}"
+        alt="Hal Bogle Sports Complex">
+
+      <div class="place-text">
+        <p>
+          The town’s main sports grounds — a cluster of fields, worn bleachers,
+          and chain-link fences that have seen better decades.
+        </p>
+
+        <p>
+          On game nights, the lights draw a crowd. On off nights, they still hum,
+          and the place feels bigger than it should.
+        </p>
+      </div>
+
+    </section>
+
+    <div class="place-actions">
+      <a class="button" href="{{ url_for('map_page') }}">Back to Map</a>
+    </div>
+
+  </div>
+</body>
 </html>
+

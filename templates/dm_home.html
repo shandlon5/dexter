@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>DM Tools</title>
@@ -7,14 +7,65 @@
 <body>
   <h1>DM Tools</h1>
 
-  <h2>Notes</h2>
-  <textarea rows="10" cols="80" placeholder="Session notes..."></textarea>
+  <h2>Plot Hooks</h2>
+  <textarea id="hooks" rows="6" style="width:100%;"></textarea>
+
+  <h2>Previous Session Notes</h2>
+  <textarea id="previous_session" rows="8" style="width:100%;"></textarea>
+
+  <h2>Miscellaneous</h2>
+  <textarea id="misc" rows="6" style="width:100%;"></textarea>
+
+  <div style="margin-top:15px;">
+    <button id="save-notes">Save All</button>
+    <span id="save-status" style="margin-left:10px; color:green;"></span>
+  </div>
+
+  <hr>
 
   <h2>Tools</h2>
   <ul>
     <li><a href="/dm/add">Add a new character</a></li>
-    <li><a href="/dm/toggles">Toggle character availability (next)</a></li>
+    <li><a href="/dm/toggles">Toggle character availability</a></li>
     <li><a href="/phonebook">View player phonebook</a></li>
   </ul>
+
+  <script>
+    async function loadNotes() {
+      const response = await fetch("/api/notes");
+      if (!response.ok) return;
+
+      const data = await response.json();
+
+      document.getElementById("hooks").value = data.hooks || "";
+      document.getElementById("previous_session").value = data.previous_session || "";
+      document.getElementById("misc").value = data.misc || "";
+    }
+
+    async function saveNotes() {
+      const payload = {
+        hooks: document.getElementById("hooks").value,
+        previous_session: document.getElementById("previous_session").value,
+        misc: document.getElementById("misc").value
+      };
+
+      const response = await fetch("/api/notes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        document.getElementById("save-status").textContent = "Saved.";
+        setTimeout(() => {
+          document.getElementById("save-status").textContent = "";
+        }, 1500);
+      }
+    }
+
+    document.getElementById("save-notes").addEventListener("click", saveNotes);
+
+    window.addEventListener("load", loadNotes);
+  </script>
 </body>
 </html>
