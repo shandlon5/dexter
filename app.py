@@ -203,8 +203,6 @@ def save_notes(hooks: str, previous_session: str, misc: str):
 ensure_dirs()
 ensure_tables()
 
-gunicorn==23.0.0
-
 
 @app.route("/")
 def index():
