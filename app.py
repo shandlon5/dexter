@@ -13,13 +13,21 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 PEOPLE_DIR = os.path.join(BASE_DIR, "people")
 
-# Local fallback files (only used if DATABASE_URL is not set)
+# Local fallback files (only used if DATABASE_URL is NOT set)
 CHAR_FILE = os.path.join(DATA_DIR, "characters.json")
 NOTES_FILE = os.path.join(DATA_DIR, "dm_notes.json")
 
 PLACEHOLDER_IMAGE = "placeholder.jpg"
 
-DATABASE_URL = os.environ.get("DATABASE_URL")
+_tables_ready = False
+
+
+def get_db_url() -> str | None:
+    return os.environ.get("DATABASE_URL")
+
+
+def using_db() -> bool:
+    return bool(get_db_url())
 
 
 def ensure_dirs():
@@ -42,12 +50,15 @@ def ensure_dirs():
 
 
 def db_conn():
-    return psycopg.connect(DATABASE_URL, row_factory=dict_row)
+    db_url = get_db_url()
+    if not db_url:
+        raise RuntimeError("DATABASE_URL is not set")
+    return psycopg.connect(db_url, row_factory=dict_row)
 
 
 def ensure_tables():
     # Only if DATABASE_URL exists
-    if not DATABASE_URL:
+    if not using_db():
         return
 
     with db_conn() as conn:
@@ -79,6 +90,17 @@ def ensure_tables():
         conn.commit()
 
 
+@app.before_request
+def _init_once():
+    global _tables_ready
+    if _tables_ready:
+        return
+    ensure_dirs()
+    if using_db():
+        ensure_tables()
+    _tables_ready = True
+
+
 def slugify(name: str) -> str:
     s = name.strip().lower()
     s = re.sub(r"[^a-z0-9]+", "_", s)
@@ -88,7 +110,7 @@ def slugify(name: str) -> str:
 
 # ===== Characters (DB or fallback) =====
 def load_characters():
-    if DATABASE_URL:
+    if using_db():
         with db_conn() as conn:
             with conn.cursor() as cur:
                 cur.execute("""
@@ -103,7 +125,7 @@ def load_characters():
 
 
 def character_id_exists(char_id: str) -> bool:
-    if DATABASE_URL:
+    if using_db():
         with db_conn() as conn:
             with conn.cursor() as cur:
                 cur.execute("SELECT 1 FROM characters WHERE id=%s LIMIT 1;", (char_id,))
@@ -114,7 +136,7 @@ def character_id_exists(char_id: str) -> bool:
 
 
 def insert_character(new_char: dict):
-    if DATABASE_URL:
+    if using_db():
         with db_conn() as conn:
             with conn.cursor() as cur:
                 cur.execute("""
@@ -138,7 +160,7 @@ def insert_character(new_char: dict):
 
 
 def set_character_availability(available_ids: set):
-    if DATABASE_URL:
+    if using_db():
         with db_conn() as conn:
             with conn.cursor() as cur:
                 cur.execute("UPDATE characters SET available = FALSE;")
@@ -160,7 +182,7 @@ def set_character_availability(available_ids: set):
 
 # ===== Notes (DB or fallback) =====
 def load_notes():
-    if DATABASE_URL:
+    if using_db():
         with db_conn() as conn:
             with conn.cursor() as cur:
                 cur.execute("SELECT hooks, previous_session, misc FROM dm_notes WHERE id=1;")
@@ -180,7 +202,7 @@ def load_notes():
 
 
 def save_notes(hooks: str, previous_session: str, misc: str):
-    if DATABASE_URL:
+    if using_db():
         with db_conn() as conn:
             with conn.cursor() as cur:
                 cur.execute("""
@@ -200,8 +222,21 @@ def save_notes(hooks: str, previous_session: str, misc: str):
         )
 
 
-ensure_dirs()
-ensure_tables()
+@app.route("/api/dbcheck")
+def dbcheck():
+    db_url_set = using_db()
+    ok = False
+    err = None
+    if db_url_set:
+        try:
+            with db_conn() as conn:
+                with conn.cursor() as cur:
+                    cur.execute("SELECT 1;")
+                    cur.fetchone()
+            ok = True
+        except Exception as e:
+            err = str(e)
+    return jsonify({"DATABASE_URL_set": db_url_set, "db_connect_ok": ok, "error": err})
 
 
 @app.route("/")
@@ -291,7 +326,7 @@ def phonebook():
 
 @app.route("/character/<char_id>")
 def character_page(char_id):
-    if DATABASE_URL:
+    if using_db():
         with db_conn() as conn:
             with conn.cursor() as cur:
                 cur.execute("""
