@@ -7,6 +7,7 @@
 </head>
 <body>
   <div class="container">
+
     <nav class="nav">
       <a href="{{ url_for('index') }}" class="button">Hub</a>
       <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
@@ -14,29 +15,41 @@
       <a href="{{ url_for('info_index') }}" class="button">Info</a>
     </nav>
 
-    <h1 class="place-title">Carrol's Comics</h1>
-    <p class="place-subtitle">Buy local… no other options.</p>
+    <header class="place-header">
+      <h1 class="place-title">Carrol's Comics</h1>
+      <p class="place-subtitle">Buy local… no other options.</p>
+    </header>
 
-    <img
-      class="place-img"
-      src="{{ url_for('static', filename='images/carrolscomics.jpg') }}"
-      alt="Carrol's Comics">
+    <section class="place-card">
 
-    <p style="text-align:center;">
-      Buy local... no other options.
-    </p>
+      <img
+        class="place-img"
+        src="{{ url_for('static', filename='images/carrolscomics.jpg') }}"
+        alt="Carrol's Comics">
 
-    <p>
-      Started as trying to sell off her late husband's collection, but it turned into a small business
-      on the lower level of her home. Most days she is either tending the shop, fussing over her cat,
-      or working in the garden out back.
-    </p>
+      <div class="place-text">
+        <p>
+          What began as an effort to sell off her late husband’s comic collection
+          gradually turned into a modest storefront operating from the lower
+          level of her home.
+        </p>
 
-    <p>
+        <p>
+          Most days she can be found tending the shop, fussing over her cat,
+          or working in the garden out back. The place smells faintly of
+          old paper and fresh soil.
+        </p>
+      </div>
+
+    </section>
+
+    <div class="place-actions">
       <a class="button" href="{{ url_for('map_page') }}">Back to Map</a>
-    </p>
+    </div>
+
   </div>
 </body>
 </html>
+
 
 

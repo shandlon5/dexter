@@ -7,6 +7,7 @@
 </head>
 <body>
   <div class="container">
+
     <nav class="nav">
       <a href="{{ url_for('index') }}" class="button">Hub</a>
       <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
@@ -14,23 +15,33 @@
       <a href="{{ url_for('info_index') }}" class="button">Info</a>
     </nav>
 
-    <h1 class="place-title">Dexter Hardware</h1>
-    <p class="place-subtitle">Tools, advice, and the town bulletin board.</p>
+    <header class="place-header">
+      <h1 class="place-title">Dexter Hardware</h1>
+      <p class="place-subtitle">Tools, advice, and the town bulletin board.</p>
+    </header>
 
-    <img
-      class="place-img"
-      src="{{ url_for('static', filename='images/hardware_dexter.JPG') }}"
-      alt="Dexter Hardware">
+    <section class="place-card">
 
-    <p>
-      A local hangout for the older crowd in town, Dexter Hardware doubles as an informal
-      meeting place as much as a supply shop. If you need a bolt, a ladder, or a bit of
-      unsolicited advice, this is where you’ll get it.
-    </p>
+      <img
+        class="place-img"
+        src="{{ url_for('static', filename='images/hardware_dexter.JPG') }}"
+        alt="Dexter Hardware">
 
-    <p>
+      <div class="place-text">
+        <p>
+          A local hangout for the older crowd in town, Dexter Hardware doubles as an informal
+          meeting place as much as a supply shop. If you need a bolt, a ladder, or a bit of
+          unsolicited advice, this is where you’ll get it.
+        </p>
+      </div>
+
+    </section>
+
+    <div class="place-actions">
       <a class="button" href="{{ url_for('map_page') }}">Back to Map</a>
-    </p>
+    </div>
+
   </div>
 </body>
 </html>
+

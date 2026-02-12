@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,7 @@
 </head>
 <body>
   <div class="container">
+
     <nav class="nav">
       <a href="{{ url_for('index') }}" class="button">Hub</a>
       <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
@@ -15,23 +15,32 @@
       <a href="{{ url_for('info_index') }}" class="button">Info</a>
     </nav>
 
-    <h1 class="place-title">Allsup's Convenience Store</h1>
-    <p class="place-subtitle">Gas, cold drinks, and the best hot snacks in town.</p>
+    <header class="place-header">
+      <h1 class="place-title">Allsup's Convenience Store</h1>
+      <p class="place-subtitle">Gas, cold drinks, and the best hot snacks in town.</p>
+    </header>
 
-    <img
-      class="place-img"
-      src="{{ url_for('static', filename='images/allsups_store.jpg') }}"
-      alt="Allsup's Convenience Store">
+    <section class="place-card">
+      <img
+        class="place-img"
+        src="{{ url_for('static', filename='images/allsups_store.jpg') }}"
+        alt="Allsup's Convenience Store">
 
-    <p>
-      A local family-run stop with gas, cold drinks, and hot snacks.
-      The biggest seller is the tamales with butter chicken — a nod to their mixed family
-      and a combo nobody expects until they try it.
-    </p>
+      <div class="place-text">
+        <p>
+          A local family-run stop with gas, cold drinks, and hot snacks.
+          The biggest seller is the tamales with butter chicken — a nod to their mixed family
+          and a combo nobody expects until they try it.
+        </p>
+      </div>
+    </section>
 
-    <p>
+    <div class="place-actions">
       <a class="button" href="{{ url_for('map_page') }}">Back to Map</a>
-    </p>
+    </div>
+
   </div>
 </body>
 </html>
+
+
