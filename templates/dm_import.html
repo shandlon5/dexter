@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Import Characters</title>
+</head>
+<body>
+  <h1>Import Characters (Neon)</h1>
+
+  {% if error %}
+    <p style="color:red;">{{ error }}</p>
+  {% endif %}
+
+  {% if ok %}
+    <p style="color:green;">{{ ok }}</p>
+  {% endif %}
+
+  <form method="POST" action="/dm/import">
+    <p>Paste the full contents of your old <strong>characters.json</strong> here:</p>
+    <textarea name="json_blob" rows="18" style="width:100%;"></textarea>
+    <br><br>
+    <button type="submit">Import</button>
+  </form>
+
+  <p style="margin-top: 20px;">
+    <a href="/dm">Back to DM Tools</a> |
+    <a href="/dm/toggles">Go to Toggles</a>
+  </p>
+</body>
+</html>

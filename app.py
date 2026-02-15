@@ -316,6 +316,54 @@ def dm_toggles():
     chars = load_characters()
     return render_template("dm_toggles.html", characters=chars)
 
+@app.route("/dm/import", methods=["GET", "POST"])
+def dm_import_characters():
+    if not using_db():
+        return "DATABASE_URL not set. DB import requires Neon.", 400
+
+    if request.method == "POST":
+        raw = request.form.get("json_blob", "").strip()
+        if not raw:
+            return render_template("dm_import.html", error="Paste your characters.json content.", ok=None)
+
+        try:
+            chars = json.loads(raw)
+            if not isinstance(chars, list):
+                return render_template("dm_import.html", error="JSON must be a list of characters.", ok=None)
+        except json.JSONDecodeError as e:
+            return render_template("dm_import.html", error=f"Invalid JSON: {e}", ok=None)
+
+        inserted = 0
+        with db_conn() as conn:
+            with conn.cursor() as cur:
+                for c in chars:
+                    if not isinstance(c, dict):
+                        continue
+                    char_id = (c.get("id") or "").strip()
+                    name = (c.get("name") or "").strip()
+                    role = (c.get("role") or "").strip()
+                    bio = (c.get("bio") or "").strip()
+                    image = (c.get("image") or "placeholder.jpg").strip()
+                    available = bool(c.get("available", False))
+
+                    if not char_id or not name or not role or not bio:
+                        continue
+
+                    cur.execute("""
+                        INSERT INTO characters (id, name, role, bio, image, available)
+                        VALUES (%s, %s, %s, %s, %s, %s)
+                        ON CONFLICT (id) DO NOTHING
+                    """, (char_id, name, role, bio, image, available))
+
+                    if cur.rowcount == 1:
+                        inserted += 1
+            conn.commit()
+
+        return render_template("dm_import.html", error=None, ok=f"Imported {inserted} characters into Neon.")
+
+    return render_template("dm_import.html", error=None, ok=None)
+
+
 
 @app.route("/phonebook")
 def phonebook():
