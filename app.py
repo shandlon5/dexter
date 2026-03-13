@@ -413,6 +413,10 @@ def info_page(page):
 def place_page(page):
     return render_template(f"places/{page}.html")
 
+@app.route("/players")
+def players():
+    return render_template("players.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
