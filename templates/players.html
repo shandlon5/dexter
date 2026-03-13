@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player Characters – Dexter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .player-card {
+            background: #1a1a1a;
+            border: 1px solid #3a003a;
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .player-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: #6a0dad;
+        }
+
+        .player-card .tag {
+            display: inline-block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #9b30d0;
+            border: 1px solid #3a003a;
+            border-radius: 3px;
+            padding: 2px 7px;
+            margin-bottom: 10px;
+        }
+
+        .player-card h2 {
+            color: #e0c4f5;
+            font-size: 1.2rem;
+            margin: 0 0 6px 0;
+        }
+
+        .player-card .role {
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .player-card .bio {
+            color: #ccc;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            border-top: 1px solid #2a002a;
+            padding-top: 12px;
+        }
+
+        .player-card .detail {
+            margin-top: 10px;
+            font-size: 0.82rem;
+            color: #888;
+        }
+
+        .player-card .detail span {
+            color: #b06de0;
+        }
+
+        .optional-badge {
+            float: right;
+            font-size: 10px;
+            background: #2a002a;
+            color: #9b30d0;
+            border-radius: 3px;
+            padding: 2px 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tbd-card {
+            opacity: 0.5;
+            border-style: dashed;
+        }
+
+        .tbd-card h2 {
+            color: #888;
+        }
+
+        .section-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #6a0dad;
+            margin: 32px 0 8px 0;
+            border-bottom: 1px solid #2a002a;
+            padding-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="{{ url_for('index') }}" class="button">Hub</a>
+            <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+            <a href="{{ url_for('map_page') }}" class="button">Map</a>
+            <a href="{{ url_for('info_index') }}" class="button">Info</a>
+            <a href="{{ url_for('dm_home') }}" class="button dm-small">DM Tools</a>
+        </nav>
+
+        <h1>Player Characters</h1>
+        <p>The four (five) people who ended up in Dexter for very different reasons.</p>
+
+        <div class="section-label">Active Characters</div>
+
+        <div class="players-grid">
+
+            <!-- NORRIS CORNWELL -->
+            <div class="player-card">
+                <div class="tag">FBI</div>
+                <h2>Norris Cornwell</h2>
+                <div class="role">Special Agent — Washington D.C.</div>
+                <div class="bio">
+                    Vietnam vet. Former deep cover operative. His entire undercover crew was wiped out by a cult. 
+                    Gets visions, especially on flights. Sent to Dexter by Director Webster to run down a KGB lead 
+                    before the CIA can take the case.
+                </div>
+                <div class="detail">
+                    <span>Trauma:</span> Vietnam + cult massacre (undercover op)<br>
+                    <span>Family:</span> Wife Gennifer · Ex-wife Jesse · Kids Phillip & Willie (Philly)<br>
+                    <span>Tell:</span> Reaches for his 8-track when he's fraying
+                </div>
+            </div>
+
+            <!-- FRANKLIN REED -->
+            <div class="player-card">
+                <div class="tag">CIA</div>
+                <h2>Franklin Reed</h2>
+                <div class="role">Case Officer — Langley</div>
+                <div class="bio">
+                    Vietnam vet. Survivor of the Hanoi Hilton POW camp. Witnessed something supernatural 
+                    in that prison — a winged entity that fed on prisoners. The government called it a disease. 
+                    He knows what he saw. Sent by Director Casey to beat the FBI to Dexter.
+                </div>
+                <div class="detail">
+                    <span>Trauma:</span> Hanoi Hilton — the Cryptid of Vietnam<br>
+                    <span>Anchor:</span> A priest he still communicates with (TBD)<br>
+                    <span>Tell:</span> Hypervigilant in crowds. Sees threats before they exist.
+                </div>
+            </div>
+
+            <!-- PROFESSOR PALMER -->
+            <div class="player-card">
+                <div class="tag">Academic</div>
+                <h2>Professor Palmer</h2>
+                <div class="role">Anthropologist — New Mexico State University</div>
+                <div class="bio">
+                    Specialist in myth, religion, and the recurrence of cryptid gods and alien figures across 
+                    human cultures. A true believer who masks it behind academic respectability. Close friend 
+                    of Darnell Mantell. Called to Dexter by Sheriff Hopper after Mantell's death.
+                </div>
+                <div class="detail">
+                    <span>Connection:</span> Last person Mantell called before he died<br>
+                    <span>The voicemail:</span> Confused. Wrong names. Wrong day. Ends singing happy birthday.<br>
+                    <span>Tell:</span> Quotes Mantell without realizing it.
+                </div>
+            </div>
+
+            <!-- TAMMY -->
+            <div class="player-card">
+                <div class="tag">Civilian</div>
+                <h2>Tammy</h2>
+                <div class="role">Off the Grid — New Mexico Desert</div>
+                <div class="bio">
+                    Lives in a repurposed bus. Connected to the local Native tribe. Carries burn scars from 
+                    a previous supernatural encounter. During a routine agricultural survey near Dexter, 
+                    Coyote speaks to her for the first time — warning her away from a frozen, wrong-cold house 
+                    in the desert. She finds what killed Mantell before anyone else does.
+                </div>
+                <div class="detail">
+                    <span>Spiritual:</span> First contact with Coyote this session<br>
+                    <span>The house:</span> Frosted windows. Ajar door. Wrong cold.<br>
+                    <span>The soil:</span> Draws blood. Turns acrid yellow. Then nothing.
+                </div>
+            </div>
+
+            <!-- FORENSIC PATHOLOGIST — OPTIONAL -->
+            <div class="player-card tbd-card">
+                <span class="optional-badge">Optional</span>
+                <div class="tag">Medical</div>
+                <h2>TBD — Forensic Pathologist</h2>
+                <div class="role">Called in by Military PD</div>
+                <div class="bio">
+                    Local law couldn't handle what they found in Mantell's apartment. Military PD brought in 
+                    a specialist. When present, this character examines the body and makes the impossible 
+                    official: the accidental death ruling is a lie.
+                </div>
+                <div class="detail">
+                    <span>The brain:</span> Neural pathways erased. Looks newborn-blank.<br>
+                    <span>The heart:</span> Exploded. Chest cavity burst from the inside.<br>
+                    <span>Note:</span> Player frequently absent — session works without them.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KGB Internal Letter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
+
+    <h1 class="place-title">KGB Correspondence</h1>
+    <p class="place-subtitle">Recovered Intelligence Asset – 1983</p>
+
+    <!-- LETTER IMAGE -->
+    <img class="place-img"
+         src="{{ url_for('static', filename='placeholders/kgb_letter.jpg') }}"
+         alt="Scanned KGB Letter">
+
+    <!-- NARRATIVE BELOW IMAGE -->
+    <div class="document-analysis">
+
+      <h2>Found Letter</h2>
+
+      <p>
+        This letter is found in an envelope with the name Petrov scribbled along with the untranslated russian copy. A few more untranslated documents and a birthday card fill the envelope.
+      </p>
+
+    
+    </div>
+
+  </div>
+
+</body>
+</html>

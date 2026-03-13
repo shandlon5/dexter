@@ -12,6 +12,7 @@
       <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
       <a href="{{ url_for('map_page') }}" class="button">Map</a>
       <a href="{{ url_for('info_index') }}" class="button">Info</a>
+      <a href="{{ url_for('players') }}" class="button">Players</a>
     </nav>
 
     <h1 class="place-title">Information Archive</h1>
@@ -56,20 +57,39 @@
 </div>
 
 
-    <!-- RESEARCH -->
-    <div class="info-section">
-      <h2>Research</h2>
-      <div class="info-entry">
-        <a href="{{ url_for('info_page', page='research_logs') }}">Recovered Research Logs</a>
-      </div>
-      <div class="info-entry">
-        <a href="{{ url_for('info_page', page='research_photos') }}">Photographic Evidence</a>
-      </div>
-      <div class="info-entry">
-        <a href="{{ url_for('info_page', page='research_files') }}">Redacted Government Files</a>
-      </div>
-    </div>
+<!-- RESEARCH -->
+<div class="info-section">
+  <h2>Research</h2>
+
+  <div class="info-entry">
+    <a href="{{ url_for('info_page', page='research_logs') }}">
+      Recovered Research Logs
+    </a>
   </div>
-</body>
-</html>
+
+  <div class="info-entry">
+    <a href="{{ url_for('info_page', page='research_photos') }}">
+      Photographic Evidence
+    </a>
+  </div>
+
+  <div class="info-entry">
+    <a href="{{ url_for('info_page', page='research_files') }}">
+      Redacted Government Files
+    </a>
+  </div>
+
+  <div class="info-entry">
+    <a href="{{ url_for('info_page', page='term_letter') }}">
+      MIT Termination Letter
+    </a>
+  </div>
+
+  <div class="info-entry">
+  <a href="{{ url_for('info_page', page='kgb_letter') }}">
+    Intercepted KGB Correspondence</a>
+</div>
+
+</div>
+
 
