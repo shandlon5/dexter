@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Hanoi Hilton</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
+ 
+    <h1 class="place-title">The Hanoi Hilton</h1>
+    <p class="place-subtitle">History File</p>
+ 
+    <img class="place-img"
+         src="{{ url_for('static', filename='placeholders/hanoi_hilton.jpg') }}"
+         alt="Hoa Lo Prison, Hanoi">
+ 
+    <p>
+      Hoa Lo Prison was built by French colonial authorities in the late 1800s to house
+      Vietnamese political prisoners. The name means "fiery furnace" in Vietnamese — a reference
+      to the street where it stood, once known for its coal and stove vendors. By the time
+      American forces were fighting in Southeast Asia, the name had taken on a different kind of weight.
+    </p>
+ 
+    <p>
+      During the Vietnam War, Hoa Lo became the primary detention facility for American
+      prisoners of war. U.S. servicemen gave it a sardonic nickname — the Hanoi Hilton —
+      a dark joke about the conditions inside. Overcrowded cells. Extreme heat. Isolation
+      lasting months or years. Interrogations that left marks that didn't show up on
+      discharge paperwork.
+    </p>
+ 
+    <p>
+      The North Vietnamese government maintained that prisoners were treated humanely
+      in accordance with the Geneva Conventions. Returning POWs told a different story.
+      Accounts of systematic torture, forced confessions, and prolonged solitary confinement
+      emerged after the war. Some men came home changed in ways they couldn't fully explain.
+      Some didn't come home at all.
+    </p>
+ 
+    <p>
+      What happened inside those walls during the war years is still not fully documented.
+      Official records are incomplete. Some prisoner accounts conflict with others in ways
+      that investigators never resolved. A handful of reports — filed, reviewed, and quietly
+      closed — describe incidents that fell outside the expected range of what captivity
+      does to a man.
+    </p>
+ 
+    <p>
+      The prison still stands in Hanoi. Part of it operates today as a museum. The exhibits
+      tell one version of what happened there. The men who survived it carry another.
+    </p>
+ 
+    <div class="back-link">
+      <a href="{{ url_for('info_index') }}">← Back to Info</a>
+    </div>
+  </div>
+</body>
+</html>
