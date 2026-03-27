@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Red Roof Inn</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+ 
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
+ 
+    <header class="place-header">
+      <h1 class="place-title">Red Roof Inn</h1>
+      <p class="place-subtitle">Vacancy. Always vacancy.</p>
+    </header>
+ 
+    <section class="place-card">
+ 
+      <img
+        class="place-img"
+        src="{{ url_for('static', filename='images/red_roof_inn.jpg') }}"
+        alt="Red Roof Inn">
+ 
+      <div class="place-text">
+        <p>
+          The kind of place that never quite recovered from something — though
+          no one remembers exactly what. The foundation has shifted enough that
+          none of the doors hang quite right, and the carpets in the walkways
+          have gone stiff with age and weather.
+        </p>
+ 
+        <p>
+          The pool sits behind a chain-link fence, filled with water gone green
+          from algae. A faded sign nearby lists the pool hours. Nobody has
+          bothered to take it down.
+        </p>
+      </div>
+ 
+    </section>
+ 
+    <div class="place-actions">
+      <a class="button" href="{{ url_for('map_page') }}">Back to Map</a>
+    </div>
+ 
+  </div>
+</body>
+</html>

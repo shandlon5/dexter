@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marriott Hotel</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+ 
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
+ 
+    <header class="place-header">
+      <h1 class="place-title">Marriott Hotel</h1>
+      <p class="place-subtitle">Recently opened. Still smells like fresh paint.</p>
+    </header>
+ 
+    <section class="place-card">
+ 
+      <img
+        class="place-img"
+        src="{{ url_for('static', filename='images/marriott.jpg') }}"
+        alt="Marriott Hotel">
+ 
+      <div class="place-text">
+        <p>
+          Brand new and conspicuously out of place, the Marriott rose up on
+          the edge of town within the last couple of years. The lobby is clean,
+          the staff are professional, and everything works the way it's
+          supposed to.
+        </p>
+ 
+        <p>
+          It draws the kind of guests who have somewhere to be — contractors,
+          government people passing through, the occasional businessman. The
+          ice machine is always stocked. The continental breakfast starts at
+          six sharp.
+        </p>
+      </div>
+ 
+    </section>
+ 
+    <div class="place-actions">
+      <a class="button" href="{{ url_for('map_page') }}">Back to Map</a>
+    </div>
+ 
+  </div>
+</body>
+</html>
