@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rumor: The Chindi</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="button">Hub</a>
+      <a href="{{ url_for('phonebook') }}" class="button">Phonebook</a>
+      <a href="{{ url_for('map_page') }}" class="button">Map</a>
+      <a href="{{ url_for('info_index') }}" class="button">Info</a>
+    </nav>
+
+    <h1 class="place-title">The Chindi</h1>
+    <p class="place-subtitle">Rumor File — something that should have moved on, and didn't.</p>
+
+    <img class="place-img"
+         src="{{ url_for('static', filename='placeholders/chindi.jpg') }}"
+         alt="The Chindi placeholder">
+
+    <p>
+      In Navajo tradition, the chindi is what remains when a person dies — not the whole of them,
+      but the dark residue. The parts that could not be reconciled. Most pass on. Some do not.
+      Those that linger are not mourned. They are avoided.
+    </p>
+
+    <p>
+      What has been reported in the area is not a figure. It is an absence. A shape that appears
+      in still water, in glass, in anything reflective — there for a moment, and gone before the
+      eye can fix on it. Those who have seen it describe a shadow with no source. A silhouette
+      that does not match anything in the room.
+    </p>
+
+    <p>
+      One account describes an image in a bathroom mirror — a person standing in water that wasn't
+      there. When the witness moved closer, the image was gone. What replaced it was a cold that
+      had no explanation, and a feeling of being watched by something that could not look away.
+    </p>
+
+    <p>
+      Mirrors and still water have long been understood in Southwestern tradition as thresholds.
+      Places where the boundary between the living world and whatever lies beyond it grows thin.
+      Most of the time, nothing crosses. Most of the time.
+    </p>
+
+    <p>
+      The chindi does not pursue. It does not threaten. It simply remains — fixed to a place it
+      cannot leave, caught in a passage it cannot complete. Whether it is dangerous is a matter
+      of some debate among those who take such things seriously. What is not debated is this:
+      it should not still be here.
+    </p>
+
+    <p><a class="button" href="{{ url_for('info_index') }}">Back to Info</a></p>
+  </div>
+</body>
+</html>
